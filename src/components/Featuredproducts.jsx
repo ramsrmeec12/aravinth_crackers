@@ -21,7 +21,7 @@ const FeaturedProducts = () => {
   ];
 
   return (
-    <section className="max-w-5xl mx-auto mt-10 px-4">
+    <section className="max-w-3xl mx-auto mt-10 px-4">
       <h2 className="text-lg font-semibold mb-4 text-center sm:text-left">
         Featured Products
       </h2>
@@ -36,7 +36,7 @@ const FeaturedProducts = () => {
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-48 object-cover sm:h-60"
+              className="w-full h-48 object-cover sm:h-60 p-4 border rounded-xl"
             />
             <div className="p-4">
               <h3 className="font-medium text-base">{product.name}</h3>
