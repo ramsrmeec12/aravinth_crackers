@@ -1,4 +1,3 @@
-import { Sparkles } from "lucide-react";
 import FeaturedProducts from "../components/Featuredproducts";
 import { useNavigate } from 'react-router-dom';
 import OurProducts from "../components/ourproducts";
@@ -41,22 +40,7 @@ export default function DeepavaliDelights() {
             </div>
 
 
-            {/* Collection Categories */}
-            <section className="max-w-5xl mx-auto mt-10 px-4">
-                <h2 className="text-lg font-semibold mb-4">Our Festive Collection</h2>
-                <div className="flex gap-4 flex-wrap">
-                    <button className="flex items-center gap-2 px-4 py-2 border rounded-md hover:bg-gray-50">
-                        <Sparkles className="w-4 h-4" />
-                        Sparkling Wonders
-                    </button>
-                    <button className="px-4 py-2 border rounded-md hover:bg-gray-50">
-                        Traditional Treasures
-                    </button>
-                    <button className="px-4 py-2 border rounded-md hover:bg-gray-50">
-                        Eco-Friendly Choices
-                    </button>
-                </div>
-            </section>
+            
 
             <FeaturedProducts></FeaturedProducts>
             <OurProducts></OurProducts>

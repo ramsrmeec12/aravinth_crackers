@@ -4,7 +4,7 @@ import React from "react";
 const FeaturedProducts = () => {
   const products = [
     {
-      image: require("../assets/image.png"),
+      image: require("../assets/catalogue-full-2021-8--500x500.webp"),
       name: "Kambi Mathappu",
       description: "Traditional sparklers",
     },
