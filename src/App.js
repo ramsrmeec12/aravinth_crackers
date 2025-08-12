@@ -8,6 +8,7 @@ import Orders from "./pages/Orders";
 import AdminRoute from "./components/AdminRoute";
 import AdminLayout from "./pages/admin/AdminLayout";
 import OrdersAdminPage from "./pages/admin/OrdersAdminPage";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (<Router>
@@ -18,6 +19,7 @@ function App() {
       <Route path="/cart" element={<CartPage></CartPage>}></Route>
       <Route path="/login" element={<LoginPage></LoginPage>}></Route>
       <Route path="/orders" element={<Orders></Orders>}></Route>
+      <Route path="/signup" element={<SignUpPage />} />
       {/* Admin section */}
         <Route path="/admin" element={
           <AdminRoute>

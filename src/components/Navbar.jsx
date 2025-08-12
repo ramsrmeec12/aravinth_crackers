@@ -5,6 +5,7 @@ import { useCart } from "../context/CartContext"; // ✅ Import cart context
 import logo from "../assets/logo.png";
 import productsData from "../data";
 import { useAuth } from "../context/AuthContext";
+import { getAuth, signOut } from "firebase/auth";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,17 @@ export default function Navbar() {
   const { user, logout } = useAuth();
 
   const { cartCount } = useCart(); // ✅ Get cart count from context
+  const auth = getAuth();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      // Optionally, redirect or update UI after logout
+      window.location.href = "/login"; // or use react-router navigate
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
 
   useEffect(() => {
     if (searchTerm.trim() === "") {
@@ -176,11 +188,21 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-3 text-sm font-medium">
-          <a href="/">Home</a>
-          <a href="/products">Products</a>
-          <a href="#">About Us</a>
-          <a href="#">Contact</a>
+        <div className="md:hidden px-4 pb-4 space-y-3 text-sm font-medium bg-white shadow-md rounded">
+          <a href="/" onClick={() => setIsOpen(false)}>Home</a>
+          <a href="/products" onClick={() => setIsOpen(false)}>Products</a>
+          <a href="#" onClick={() => setIsOpen(false)}>About Us</a>
+          <a href="#" onClick={() => setIsOpen(false)}>Contact</a>
+
+          <button
+            onClick={() => {
+              handleLogout();
+              setIsOpen(false);
+            }}
+            className="w-full text-left text-red-600 hover:text-red-800"
+          >
+            Logout
+          </button>
         </div>
       )}
     </header>

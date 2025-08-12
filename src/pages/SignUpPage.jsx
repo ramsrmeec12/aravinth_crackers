@@ -1,21 +1,28 @@
+// src/pages/SignUpPage.jsx
 import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const auth = getAuth();
 
-  const handleLogin = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     setError("");
 
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/products"); // Redirect after login
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/products"); // redirect after sign up
     } catch (err) {
       setError(err.message);
     }
@@ -24,10 +31,10 @@ const LoginPage = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <form
-        onSubmit={handleLogin}
+        onSubmit={handleSignUp}
         className="bg-white p-6 rounded-lg shadow-lg w-80"
       >
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <h2 className="text-2xl font-bold mb-4">Create Account</h2>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
         <input
@@ -46,22 +53,24 @@ const LoginPage = () => {
           className="w-full p-2 border rounded mb-3"
           required
         />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          className="w-full p-2 border rounded mb-3"
+          required
+        />
 
         <button
           type="submit"
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded"
+          className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded"
         >
-          Login
+          Sign Up
         </button>
-        <p className="mt-4 text-center text-sm">
-          Don't have an account?{" "}
-          <a href="/signup" className="text-blue-500 hover:underline">
-            Create one
-          </a>
-        </p>
       </form>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
