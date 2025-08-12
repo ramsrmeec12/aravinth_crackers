@@ -22,7 +22,7 @@ export default function DeepavaliDelights() {
                         >
                             <div className="flex flex-col gap-2 text-center px-2">
                                 <h1 className="text-white text-3xl sm:text-4xl font-black leading-tight">
-                                    Deepavali Delights
+                                    Aravinth Crackers
                                 </h1>
                                 <h2 className="text-white text-sm sm:text-base font-normal">
                                     Illuminating your celebrations with joy and tradition
