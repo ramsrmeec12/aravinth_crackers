@@ -17,20 +17,44 @@ export default function OrdersAdminPage() {
   useEffect(() => {
     const ordersRef = collection(db, "orders");
     const q = query(ordersRef, orderBy("createdAt", "desc"));
+
+    let firstLoad = true; // prevent notifications on initial page load
+
     const unsub = onSnapshot(q, (snap) => {
-      setOrders(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+      const newOrders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+      if (!firstLoad && newOrders.length > orders.length) {
+        const latestOrder = newOrders[0];
+        // Play a sound or show browser notification
+        if (Notification.permission === "granted") {
+          new Notification("New Order Received", {
+            body: `${latestOrder.name} placed an order.`,
+          });
+        }
+      }
+
+      setOrders(newOrders);
+      firstLoad = false;
     }, (err) => console.error("orders listen err", err));
+
     return () => unsub();
-  }, []);
+  }, [orders]);
+
+  useEffect(() => {
+  if (Notification.permission !== "granted") {
+    Notification.requestPermission();
+  }
+}, []);
+
 
   const filtered = useMemo(() => {
     return orders.filter(order => {
       if (statusFilter !== "All" && order.status !== statusFilter) return false;
       if (qText && !(
-          (order.userId || "").toLowerCase().includes(qText.toLowerCase()) ||
-          (order.name || "").toLowerCase().includes(qText.toLowerCase()) ||
-          (order.phone || "").toLowerCase().includes(qText.toLowerCase())
-        )) return false;
+        (order.userId || "").toLowerCase().includes(qText.toLowerCase()) ||
+        (order.name || "").toLowerCase().includes(qText.toLowerCase()) ||
+        (order.phone || "").toLowerCase().includes(qText.toLowerCase())
+      )) return false;
       if (dateFrom) {
         const from = new Date(dateFrom);
         if (!order.createdAt) return false;
@@ -41,7 +65,7 @@ export default function OrdersAdminPage() {
         const to = new Date(dateTo);
         if (!order.createdAt) return false;
         const ordDate = order.createdAt.toDate ? order.createdAt.toDate() : new Date(order.createdAt);
-        if (ordDate > new Date(to.getFullYear(), to.getMonth(), to.getDate(), 23,59,59)) return false;
+        if (ordDate > new Date(to.getFullYear(), to.getMonth(), to.getDate(), 23, 59, 59)) return false;
       }
       return true;
     });
@@ -61,12 +85,12 @@ export default function OrdersAdminPage() {
     <div className="space-y-4">
       <div className="flex flex-col md:flex-row gap-3 md:items-end justify-between">
         <div className="flex gap-3">
-          <input value={qText} onChange={(e)=>setQText(e.target.value)} placeholder="search user / name / phone" className="border p-2 rounded" />
-          <select value={statusFilter} onChange={(e)=>setStatusFilter(e.target.value)} className="border p-2 rounded">
+          <input value={qText} onChange={(e) => setQText(e.target.value)} placeholder="search user / name / phone" className="border p-2 rounded" />
+          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="border p-2 rounded">
             {STATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
-          <input type="date" value={dateFrom} onChange={(e)=>setDateFrom(e.target.value)} className="border p-2 rounded" />
-          <input type="date" value={dateTo} onChange={(e)=>setDateTo(e.target.value)} className="border p-2 rounded" />
+          <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} className="border p-2 rounded" />
+          <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} className="border p-2 rounded" />
         </div>
 
         <div className="flex gap-2 items-center">

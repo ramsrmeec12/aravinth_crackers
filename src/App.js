@@ -9,6 +9,8 @@ import AdminRoute from "./components/AdminRoute";
 import AdminLayout from "./pages/admin/AdminLayout";
 import OrdersAdminPage from "./pages/admin/OrdersAdminPage";
 import SignUpPage from "./pages/SignUpPage";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+
 
 function App() {
   return (<Router>
@@ -20,16 +22,16 @@ function App() {
       <Route path="/login" element={<LoginPage></LoginPage>}></Route>
       <Route path="/orders" element={<Orders></Orders>}></Route>
       <Route path="/signup" element={<SignUpPage />} />
-      {/* Admin section */}
-        <Route path="/admin" element={
-          <AdminRoute>
-            <AdminLayout />
-          </AdminRoute>
-        }>
-          <Route index element={<OrdersAdminPage />} />
-          <Route path="orders" element={<OrdersAdminPage />} />
-          {/* add more admin subroutes here */}
-        </Route>
+      Admin section
+      <Route path="/admin" element={
+        <AdminRoute>
+          <AdminLayout />
+        </AdminRoute>
+      }>
+        <Route index element={<OrdersAdminPage />} />
+        <Route path="orders" element={<OrdersAdminPage />} />
+        {/* add more admin subroutes here */}
+      </Route>
     </Routes>
   </Router>)
 }
