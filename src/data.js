@@ -1,4 +1,6 @@
 import image1 from './assets/image.png';
+import image2 from './assets/image.png';
+import image3 from './assets/image.png';
 
 const products = [
   {
@@ -7,6 +9,7 @@ const products = [
     category: "Sparklers",
     subcategory: "Traditional",
     image: image1,
+    otherImages: [image2, image3],
     originalPrice: 100,
     discountedPrice: 80,
     discountPercent: 20

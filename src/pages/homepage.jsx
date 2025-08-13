@@ -46,18 +46,7 @@ export default function DeepavaliDelights() {
             <OurProducts></OurProducts>
 
 
-            {/* Footer */}
-            <footer className="mt-12 border-t py-6 text-center text-sm text-gray-500">
-                <div className="flex justify-center gap-8 mb-4">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-                <div className="flex justify-center gap-4 mb-2">
-                    <a href="#">📷</a>
-                    <a href="#">🌐</a>
-                </div>
-                <p>© 2024 Deepavali Delights. All rights reserved.</p>
-            </footer>
+            
         </div>
     );
 }

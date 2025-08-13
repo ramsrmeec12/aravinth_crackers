@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { addToCart, cart } = useCart();
@@ -7,11 +8,13 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="bg-white shadow-sm rounded-lg overflow-hidden hover:shadow-md transition">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-full h-48 object-cover sm:h-60"
-      />
+      <Link to={`/product/${product.id}`}>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-48 object-cover sm:h-60"
+        />
+      </Link>
       <div className="p-4">
         <h3 className="font-medium text-base">{product.name}</h3>
         <p className="text-sm text-gray-500">

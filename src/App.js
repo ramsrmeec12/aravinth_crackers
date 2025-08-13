@@ -9,7 +9,9 @@ import AdminRoute from "./components/AdminRoute";
 import AdminLayout from "./pages/admin/AdminLayout";
 import OrdersAdminPage from "./pages/admin/OrdersAdminPage";
 import SignUpPage from "./pages/SignUpPage";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import ProductDetails from "./pages/ProductDetails";
+import Footersec from "./components/Footer";
+
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
       <Route path="/login" element={<LoginPage></LoginPage>}></Route>
       <Route path="/orders" element={<Orders></Orders>}></Route>
       <Route path="/signup" element={<SignUpPage />} />
+       <Route path="/product/:id" element={<ProductDetails />} />
       Admin section
       <Route path="/admin" element={
         <AdminRoute>
@@ -33,6 +36,7 @@ function App() {
         {/* add more admin subroutes here */}
       </Route>
     </Routes>
+    <Footersec></Footersec>
   </Router>)
 }
 
