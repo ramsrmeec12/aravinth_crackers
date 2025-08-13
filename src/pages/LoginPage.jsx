@@ -14,12 +14,19 @@ const LoginPage = () => {
     setError("");
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/products"); // Redirect after login
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      if (user.uid === "kS2fDYnVD9cucGnVIUoEZsBrpCy2") {
+        navigate("/admin"); // Redirect admin
+      } else {
+        navigate("/products"); // Redirect normal user
+      }
     } catch (err) {
       setError(err.message);
     }
   };
+
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">

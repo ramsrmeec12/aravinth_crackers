@@ -17,28 +17,21 @@ const ProductsPage = () => {
   useEffect(() => {
     const search = query.get("search") || "";
     setSearchTerm(search);
-    // Reset category to 'All' when searching
-    if (search) {
-      setSelectedCategory("All");
-    }
+    if (search) setSelectedCategory("All");
   }, [query]);
 
-  // Filter products by category first
-  let filteredProducts =
+  const filteredProducts =
     selectedCategory === "All"
       ? productsData
       : productsData.filter((p) => p.category === selectedCategory);
 
-  // Further filter by search term (if any)
-  if (searchTerm) {
-    filteredProducts = filteredProducts.filter((p) =>
-      p.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }
-
-  const handleAddToCart = (productId) => {
-    console.log("Added to cart:", productId);
-  };
+  // Group products by category for "All" view
+  const groupedByCategory = categories
+    .filter((cat) => cat !== "All")
+    .map((cat) => ({
+      category: cat,
+      products: productsData.filter((p) => p.category === cat),
+    }));
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
@@ -59,20 +52,32 @@ const ProductsPage = () => {
         ))}
       </div>
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onAddToCart={handleAddToCart}
-            />
-          ))
-        ) : (
-          <p className="text-center col-span-full">No products found.</p>
-        )}
-      </div>
+      {/* All view */}
+      {selectedCategory === "All" ? (
+        groupedByCategory.map((group) => (
+          <div key={group.category} className="mb-8">
+            <h2 className="text-xl font-bold mb-3">{group.category}</h2>
+            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+              {group.products.map((product) => (
+                <div className="min-w-[200px]" key={product.id}>
+                  <ProductCard product={product} />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      ) : (
+        // Category view → grid
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          ) : (
+            <p className="text-center col-span-full">No products found.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

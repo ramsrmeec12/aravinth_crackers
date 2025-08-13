@@ -65,13 +65,26 @@ export function CartProvider({ children }) {
   };
 
   // Update quantity of an item
-  const updateQty = (id, qty) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, qty } : item
-      )
-    );
+  // Update quantity of an item
+  const updateQty = async (id, qty) => {
+    // Update local state
+    setCart((prev) => {
+      const updatedCart = prev.map((item) =>
+        item.id === id ? { ...item, qty: qty > 0 ? qty : 1 } : item
+      );
+
+      // Save to Firestore
+      if (user) {
+        updateDoc(doc(db, "carts", user.uid), { items: updatedCart })
+          .catch((error) => {
+            console.error("Error updating quantity in Firestore:", error.message);
+          });
+      }
+
+      return updatedCart;
+    });
   };
+
 
   // Remove an item from cart
   const removeFromCart = async (id) => {
