@@ -96,6 +96,10 @@ export default function OrdersAdminPage() {
         <div className="flex gap-2 items-center">
           <CSVLink data={csvData} filename={`orders_export_${Date.now()}.csv`} className="px-3 py-2 bg-gray-200 rounded">Export CSV</CSVLink>
         </div>
+        <button onClick={() => new Notification("Test Notification", { body: "This is working!" })}>
+  Test Notification
+</button>
+
       </div>
 
       <div className="grid gap-3">
