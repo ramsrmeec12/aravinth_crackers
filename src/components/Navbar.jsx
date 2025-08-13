@@ -69,8 +69,8 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <a href="/">Home</a>
           <a href="/products">Products</a>
-          <a href="#">About Us</a>
-          <a href="#">Contact</a>
+          <a href="about">About Us</a>
+          <a href="contact">Contact</a>
         </nav>
 
         {/* Search bar Desktop */}
@@ -191,8 +191,8 @@ export default function Navbar() {
         <div className="md:hidden pt-2 px-4 pb-4 space-y-3 text-sm font-medium bg-white shadow-md rounded">
           <a href="/" className="block" onClick={() => setIsOpen(false)}>Home</a>
           <a href="/products" className="block" onClick={() => setIsOpen(false)}>Products</a>
-          <a href="#" className="block" onClick={() => setIsOpen(false)}>About Us</a>
-          <a href="#" className="block" onClick={() => setIsOpen(false)}>Contact</a>
+          <a href="about" className="block" onClick={() => setIsOpen(false)}>About Us</a>
+          <a href="contact" className="block" onClick={() => setIsOpen(false)}>Contact</a>
 
           <button
             onClick={() => {

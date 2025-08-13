@@ -11,6 +11,8 @@ import OrdersAdminPage from "./pages/admin/OrdersAdminPage";
 import SignUpPage from "./pages/SignUpPage";
 import ProductDetails from "./pages/ProductDetails";
 import Footersec from "./components/Footer";
+import AboutUs from "./components/Aboutus";
+import ContactUs from "./components/Contact";
 
 
 
@@ -24,6 +26,8 @@ function App() {
       <Route path="/login" element={<LoginPage></LoginPage>}></Route>
       <Route path="/orders" element={<Orders></Orders>}></Route>
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/about" element={<AboutUs></AboutUs>}></Route>
+      <Route path="/contact" element={<ContactUs></ContactUs>}></Route>
        <Route path="/product/:id" element={<ProductDetails />} />
       Admin section
       <Route path="/admin" element={
