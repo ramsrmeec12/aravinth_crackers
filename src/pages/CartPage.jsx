@@ -3,7 +3,13 @@ import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  doc,
+  runTransaction,
+  setDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 
 const CartPage = () => {
   const { user } = useAuth();
@@ -14,7 +20,7 @@ const CartPage = () => {
   const [pincode, setPincode] = useState("");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
-  const [email, setEmail] = useState(""); // ✅ new
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
   const placeOrder = async () => {
@@ -28,18 +34,41 @@ const CartPage = () => {
     }
 
     try {
-      await addDoc(collection(db, "orders"), {
+      // 🔹 Firestore transaction to generate incremental order number
+      const counterRef = doc(db, "counters", "orderCounter");
+      const newOrderNumber = await runTransaction(db, async (transaction) => {
+        const counterDoc = await transaction.get(counterRef);
+        let currentCount = 0;
+        if (counterDoc.exists()) {
+          currentCount = counterDoc.data().count || 0;
+        }
+        const updatedCount = currentCount + 1;
+        transaction.set(counterRef, { count: updatedCount });
+        return updatedCount;
+      });
+
+      // 🔹 Structured Order ID: ORD-YYYY-XXXX
+      const year = new Date().getFullYear();
+      const formattedOrderId = `ORD-${year}-${String(newOrderNumber).padStart(
+        4,
+        "0"
+      )}`;
+
+      // 🔹 Save order with custom ID
+      await setDoc(doc(db, "orders", formattedOrderId), {
+        orderId: formattedOrderId,
         userId: user.uid,
-        items: cart,
         name,
         phone,
-        email, // ✅ store email
+        email,
         address,
         pincode,
+        items: cart,
         totalAmount: cart.reduce(
-          (sum, item) => sum + (item.price || 0) * item.qty,
+          (sum, item) => sum + (item.originalPrice || 0) * item.qty,
           0
         ),
+        status: "Pending",
         createdAt: serverTimestamp(),
       });
 
@@ -86,7 +115,9 @@ const CartPage = () => {
               <div className="flex items-center">
                 <button
                   className="px-2"
-                  onClick={() => updateQty(item.id, Math.max(item.qty - 1, 1))}
+                  onClick={() =>
+                    updateQty(item.id, Math.max(item.qty - 1, 1))
+                  }
                 >
                   -
                 </button>
