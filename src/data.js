@@ -3,47 +3,1386 @@ import image2 from './assets/image.png';
 import image3 from './assets/image.png';
 
 const products = [
+  //Single Sound
   {
     id: "p1",
-    name: "Kambi Mathappu",
-    category: "Sparklers",
-    subcategory: "Traditional",
+    name: "2 3/4' Kuruvi",
+    category: "Single Sound",
     image: image1,
-    otherImages: [image2, image3],
-    originalPrice: 100,
-    discountedPrice: 80,
-    discountPercent: 20
+    otherImages: [image2],
+    originalPrice: 77,
+    discountedPrice: 8,
+    discountPercent: 90
   },
   {
     id: "p2",
-    name: "Lakshmi Vedi",
-    category: "Flower Pots",
-    subcategory: "Classic",
+    name: "3 1/5' Lakshmi",
+    category: "Single Sound",
     image: image1,
-    originalPrice: 120,
-    discountedPrice: 90,
-    discountPercent: 25
+    otherImages: [image2],
+    originalPrice: 132,
+    discountedPrice: 13,
+    discountPercent: 90
   },
   {
     id: "p3",
-    name: "Colorful Flower Pot",
-    category: "Flower Pots",
-    subcategory: "Colorful",
+    name: "4' Lakshmi/Hulk/Tiger",
+    category: "Single Sound",
     image: image1,
-    originalPrice: 150,
-    discountedPrice: 120,
-    discountPercent: 20
+    otherImages: [image2],
+    originalPrice: 176,
+    discountedPrice: 18,
+    discountPercent: 90
   },
   {
     id: "p4",
-    name: "Electric Sparkler",
-    category: "Sparklers",
-    subcategory: "Electric",
+    name: "4' Deluxe / Gold Laxmi",
+    category: "Single Sound",
     image: image1,
-    originalPrice: 90,
-    discountedPrice: 70,
-    discountPercent: 22
+    otherImages: [image2],
+    originalPrice: 418,
+    discountedPrice: 42,
+    discountPercent: 90
   },
+  {
+    id: "p5",
+    name: "5' Jallikattu/ Kumki",
+    category: "Single Sound",
+    image: image1,
+    otherImages: [image2],
+    originalPrice: 550,
+    discountedPrice: 55,
+    discountPercent: 90
+  },
+  {
+    id: "p6",
+    name: "6' Dragon",
+    category: "Single Sound",
+    image: image1,
+    otherImages: [image2],
+    originalPrice: 660,
+    discountedPrice: 66,
+    discountPercent: 90
+  },
+  {
+    id: "p7",
+    name: "Two Sound",
+    category: "Single Sound",
+    image: image1,
+    otherImages: [image2],
+    originalPrice: 396,
+    discountedPrice: 40,
+    discountPercent: 90
+  },
+
+
+  //Ground chakkars
+  {
+  id: "p8",
+  name: "Ground Chakkars Big (10's)",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 352,
+  discountedPrice: 35,
+  discountPercent: 90
+},
+{
+  id: "p9",
+  name: "Ground Chakkars Big (25's)",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 715,
+  discountedPrice: 72,
+  discountPercent: 90
+},
+{
+  id: "p10",
+  name: "Ground Chakkars Spl",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 770,
+  discountedPrice: 77,
+  discountPercent: 90
+},
+{
+  id: "p11",
+  name: "Ground Chakkars Deluxe",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1100,
+  discountedPrice: 110,
+  discountPercent: 90
+},
+{
+  id: "p12",
+  name: "Spinner Chakkaram Spl",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1210,
+  discountedPrice: 121,
+  discountPercent: 90
+},
+{
+  id: "p13",
+  name: "Spinner Chakkaram DLX",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1430,
+  discountedPrice: 143,
+  discountPercent: 90
+},
+{
+  id: "p14",
+  name: "Wire Chakkaram (UV Box)",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1760,
+  discountedPrice: 176,
+  discountPercent: 90
+},
+{
+  id: "p15",
+  name: "Wishling Dixie (UV Box)",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 990,
+  discountedPrice: 99,
+  discountPercent: 90
+},
+{
+  id: "p16",
+  name: "Lotus Wheel",
+  category: "Ground Chakkars",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1100,
+  discountedPrice: 110,
+  discountPercent: 90
+},
+
+//Flower pots
+
+{
+  id: "p17",
+  name: "Flower Pots Big",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 660,
+  discountedPrice: 66,
+  discountPercent: 90
+},
+{
+  id: "p18",
+  name: "Flower Pots Spl",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p19",
+  name: "Flower Pots Ashoka",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1100,
+  discountedPrice: 110,
+  discountPercent: 90
+},
+{
+  id: "p20",
+  name: "Flower Pots DLX (5 Pcs)",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1430,
+  discountedPrice: 143,
+  discountPercent: 90
+},
+{
+  id: "p21",
+  name: "Flower Pots SPR Deluxe (2 Pcs)",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p22",
+  name: "Color Koti (10's)",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1980,
+  discountedPrice: 198,
+  discountPercent: 90
+},
+{
+  id: "p23",
+  name: "Color Koti DLX/Dazling Pot - 10 Pcs",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2640,
+  discountedPrice: 264,
+  discountPercent: 90
+},
+{
+  id: "p24",
+  name: "Monster Pot - 10's",
+  category: "Flower Pots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 3960,
+  discountedPrice: 396,
+  discountPercent: 90
+},
+
+//Twinkling Star
+{
+  id: "p25",
+  name: "46cm Twinkling Star",
+  category: "Twinkling Star",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 275,
+  discountedPrice: 28,
+  discountPercent: 90
+},
+{
+  id: "p26",
+  name: "120cm Twinkling Star",
+  category: "Twinkling Star",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 660,
+  discountedPrice: 66,
+  discountPercent: 90
+},
+{
+  id: "p27",
+  name: "Nayagara Pencil (3 Pcs)",
+  category: "Twinkling Star",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 990,
+  discountedPrice: 99,
+  discountPercent: 90
+},
+{
+  id: "p28",
+  name: "Star Pencil (2 Pcs)",
+  category: "Twinkling Star",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1430,
+  discountedPrice: 143,
+  discountPercent: 90
+},
+{
+  id: "p29",
+  name: "Color Smoke",
+  category: "Twinkling Star",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1100,
+  discountedPrice: 110,
+  discountPercent: 90
+},
+
+//Rockets
+{
+  id: "p30",
+  name: "Rockets Bomb",
+  category: "Rockets",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 550,
+  discountedPrice: 55,
+  discountPercent: 90
+},
+{
+  id: "p31",
+  name: "Lunick Rocket",
+  category: "Rockets",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1100,
+  discountedPrice: 110,
+  discountPercent: 90
+},
+{
+  id: "p32",
+  name: "Whistling Rocket",
+  category: "Rockets",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1540,
+  discountedPrice: 154,
+  discountPercent: 90
+}
+,
+
+//kids special
+{
+  id: "p33",
+  name: "Kit Kat",
+  category: "Kids Special",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 220,
+  discountedPrice: 22,
+  discountPercent: 90
+},
+{
+  id: "p34",
+  name: "Chittu Puttu",
+  category: "Kids Special",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 330,
+  discountedPrice: 33,
+  discountPercent: 90
+},
+{
+  id: "p35",
+  name: "Asrafi Popes Mix",
+  category: "Kids Special",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 660,
+  discountedPrice: 66,
+  discountPercent: 90
+},
+{
+  id: "p36",
+  name: "Red Flash (5 Pcs)",
+  category: "Kids Special",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p37",
+  name: "Bambara (5 Pcs)",
+  category: "Kids Special",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p38",
+  name: "Drone Camera (5 Pcs)",
+  category: "Kids Special",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1540,
+  discountedPrice: 154,
+  discountPercent: 90
+},
+
+//Bomb
+{
+  id: "p39",
+  name: "Hydro Bomb Green",
+  category: "Bomb",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 715,
+  discountedPrice: 72,
+  discountPercent: 90
+},
+{
+  id: "p40",
+  name: "Dhamaka / Classic Bomb",
+  category: "Bomb",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1100,
+  discountedPrice: 110,
+  discountPercent: 90
+},
+{
+  id: "p41",
+  name: "Dino Thunder Mega Bomb",
+  category: "Bomb",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1870,
+  discountedPrice: 187,
+  discountPercent: 90
+},
+{
+  id: "p42",
+  name: "Paper Bomb ( Adiyal ) 1/4 Kg",
+  category: "Bomb",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 550,
+  discountedPrice: 55,
+  discountPercent: 90
+},
+{
+  id: "p43",
+  name: "Paper Bomb ( Adiyal ) 1/2 Kg",
+  category: "Bomb",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1100,
+  discountedPrice: 110,
+  discountPercent: 90
+},
+{
+  id: "p44",
+  name: "Paper Bomb ( Adiyal ) 1 Kg",
+  category: "Bomb",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+
+//Bijili crackers
+{
+  id: "p45",
+  name: "Red Bijili (50's)",
+  category: "Bijili Crackers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 165,
+  discountedPrice: 17,
+  discountPercent: 90
+},
+{
+  id: "p46",
+  name: "Red Bijili (100's)",
+  category: "Bijili Crackers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 275,
+  discountedPrice: 28,
+  discountPercent: 90
+},
+
+//Festival Crackers
+{
+  id: "p47",
+  name: "Face Book",
+  category: "Festival Crackers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 3080,
+  discountedPrice: 308,
+  discountPercent: 90
+},
+{
+  id: "p48",
+  name: "Wats App",
+  category: "Festival Crackers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 6050,
+  discountedPrice: 605,
+  discountPercent: 90
+},
+{
+  id: "p49",
+  name: "You Tube",
+  category: "Festival Crackers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 15400,
+  discountedPrice: 1540,
+  discountPercent: 90
+},
+{
+  id: "p50",
+  name: "Instagram",
+  category: "Festival Crackers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 28600,
+  discountedPrice: 2860,
+  discountPercent: 90
+},
+
+//Mini Fancy Items
+{
+  id: "p51",
+  name: "7 Shot (5 Pce)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1430,
+  discountedPrice: 143,
+  discountPercent: 90
+},
+{
+  id: "p52",
+  name: "1' Chotta Fancy (Single)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 440,
+  discountedPrice: 44,
+  discountPercent: 90
+},
+{
+  id: "p53",
+  name: "2 1/2' Fancy (Single)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1375,
+  discountedPrice: 138,
+  discountPercent: 90
+},
+{
+  id: "p54",
+  name: "3 1/2 1\" Fancy (Single)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2475,
+  discountedPrice: 248,
+  discountPercent: 90
+},
+{
+  id: "p55",
+  name: "4\" Fancy (Single)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 3300,
+  discountedPrice: 330,
+  discountPercent: 90
+},
+{
+  id: "p56",
+  name: "2\" Fancy Rock Star (3 Pcs)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2475,
+  discountedPrice: 248,
+  discountPercent: 90
+},
+{
+  id: "p57",
+  name: "3 1/2 Fancy (2 Pcs)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 4950,
+  discountedPrice: 495,
+  discountPercent: 90
+},
+{
+  id: "p58",
+  name: "4\" Fancy (2 Pcs)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 6600,
+  discountedPrice: 660,
+  discountPercent: 90
+},
+{
+  id: "p59",
+  name: "5\" Fancy (2 Pcs)",
+  category: "Mini Fancy Items",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 7700,
+  discountedPrice: 770,
+  discountPercent: 90
+}, 
+
+//Repeat Shots
+{
+  id: "p60",
+  name: "12 Shot (Green & Crackling)",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1650,
+  discountedPrice: 165,
+  discountPercent: 90
+},
+{
+  id: "p61",
+  name: "25 Shot (Green & Crackling)",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 3080,
+  discountedPrice: 308,
+  discountPercent: 90
+},
+{
+  id: "p62",
+  name: "15 Shot (Multi Color)",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2310,
+  discountedPrice: 231,
+  discountPercent: 90
+},
+{
+  id: "p63",
+  name: "30 Shot (Multi Color)",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 4400,
+  discountedPrice: 440,
+  discountPercent: 90
+},
+{
+  id: "p64",
+  name: "60 Shot (Multi Color)",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 8250,
+  discountedPrice: 825,
+  discountPercent: 90
+},
+{
+  id: "p65",
+  name: "120 Shot (Multi Color)",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 16500,
+  discountedPrice: 1650,
+  discountPercent: 90
+},
+{
+  id: "p66",
+  name: "240 Shot (Multi Color)",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 29700,
+  discountedPrice: 2970,
+  discountPercent: 90
+},
+{
+  id: "p67",
+  name: "5 * 5 (25 Shot) Different Crackling Shot",
+  category: "Repeat Shots",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 33000,
+  discountedPrice: 3300,
+  discountPercent: 90
+},
+
+
+//Colour Fountain
+{
+  id: "p68",
+  name: "Color Rain (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p69",
+  name: "Peacock Feather (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p70",
+  name: "Golden Globe (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p71",
+  name: "Twix (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1320,
+  discountedPrice: 132,
+  discountPercent: 90
+},
+{
+  id: "p72",
+  name: "Nano (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 495,
+  discountedPrice: 50,
+  discountPercent: 90
+},
+{
+  id: "p73",
+  name: "Big Beat/Strawberry (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1540,
+  discountedPrice: 154,
+  discountPercent: 90
+},
+{
+  id: "p74",
+  name: "Spirite / Coco Cola Fountain",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1760,
+  discountedPrice: 176,
+  discountPercent: 90
+},
+{
+  id: "p75",
+  name: "Tri Color (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p76",
+  name: "Whistle Mini Siren (5 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1320,
+  discountedPrice: 132,
+  discountPercent: 90
+},
+{
+  id: "p77",
+  name: "Mega Siren (3 Pcs)",
+  category: "Colour Fountain",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+
+//Peacock Cracker
+{
+  id: "p78",
+  name: "Dancing Peacock",
+  category: "Peacock Cracker",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1650,
+  discountedPrice: 165,
+  discountPercent: 90
+},
+{
+  id: "p79",
+  name: "Magic Peacock",
+  category: "Peacock Cracker",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1650,
+  discountedPrice: 165,
+  discountPercent: 90
+},
+{
+  id: "p80",
+  name: "Mega & Bada Peacock",
+  category: "Peacock Cracker",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 3740,
+  discountedPrice: 374,
+  discountPercent: 90
+},
+
+//New Variety
+{
+  id: "p81",
+  name: "Koko (5 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p82",
+  name: "Jasmine (5 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 3300,
+  discountedPrice: 330,
+  discountPercent: 90
+},
+{
+  id: "p83",
+  name: "Fox Star",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1210,
+  discountedPrice: 121,
+  discountPercent: 90
+},
+{
+  id: "p84",
+  name: "Sing Pop",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1540,
+  discountedPrice: 154,
+  discountPercent: 90
+},
+{
+  id: "p85",
+  name: "H 2 O",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1320,
+  discountedPrice: 132,
+  discountPercent: 90
+},
+{
+  id: "p85a",
+  name: "6\" Water Queen",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1760,
+  discountedPrice: 176,
+  discountPercent: 90
+},
+{
+  id: "p86",
+  name: "Autumn Rain",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1320,
+  discountedPrice: 132,
+  discountPercent: 90
+},
+{
+  id: "p87",
+  name: "Fire Egg (2 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1430,
+  discountedPrice: 143,
+  discountPercent: 90
+},
+{
+  id: "p88",
+  name: "Tin Fountain (3 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 880,
+  discountedPrice: 88,
+  discountPercent: 90
+},
+{
+  id: "p89",
+  name: "Crackling Fountain",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p90",
+  name: "Selfie Stick (3 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1320,
+  discountedPrice: 132,
+  discountPercent: 90
+},
+{
+  id: "p91",
+  name: "Money in Small Bank (3 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1540,
+  discountedPrice: 154,
+  discountPercent: 90
+},
+{
+  id: "p92",
+  name: "Money Bank Big",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p93",
+  name: "Lolli Pop (5 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p94",
+  name: "Old Gold (25 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1540,
+  discountedPrice: 154,
+  discountPercent: 90
+},
+{
+  id: "p95",
+  name: "Teddy 9000",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1540,
+  discountedPrice: 154,
+  discountPercent: 90
+},
+{
+  id: "p96",
+  name: "90 Wats (100 Wala)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1320,
+  discountedPrice: 132,
+  discountPercent: 90
+},
+{
+  id: "p97",
+  name: "Magic Whip",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1760,
+  discountedPrice: 176,
+  discountPercent: 90
+},
+{
+  id: "p98",
+  name: "4 x 4 Wheel (5 Pcs)",
+  category: "New Variety",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1650,
+  discountedPrice: 165,
+  discountPercent: 90
+},
+
+//Match Box
+{
+  id: "p99",
+  name: "Annam (10 in One)",
+  category: "Match Box",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 935,
+  discountedPrice: 94,
+  discountPercent: 90
+},
+{
+  id: "p100",
+  name: "Samrat (10 in One)",
+  category: "Match Box",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1430,
+  discountedPrice: 143,
+  discountPercent: 90
+},
+{
+  id: "p101",
+  name: "Crown (10 in One)",
+  category: "Match Box",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p102",
+  name: "Roll Cap",
+  category: "Match Box",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 660,
+  discountedPrice: 66,
+  discountPercent: 90
+},
+{
+  id: "p103",
+  name: "Snake Tablet",
+  category: "Match Box",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 275,
+  discountedPrice: 28,
+  discountPercent: 90
+},
+
+
+//Sparkles Category
+{
+  id: "p104",
+  name: "7 CM Electric Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 99,
+  discountedPrice: 10,
+  discountPercent: 90
+},
+{
+  id: "p105",
+  name: "7 CM Crackling Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 110,
+  discountedPrice: 11,
+  discountPercent: 90
+},
+{
+  id: "p106",
+  name: "7 CM Green Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 121,
+  discountedPrice: 12,
+  discountPercent: 90
+},
+{
+  id: "p107",
+  name: "10 CM Electric Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 176,
+  discountedPrice: 18,
+  discountPercent: 90
+},
+{
+  id: "p108",
+  name: "10 CM Crackling Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 198,
+  discountedPrice: 20,
+  discountPercent: 90
+},
+{
+  id: "p109",
+  name: "10 CM Green Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 220,
+  discountedPrice: 22,
+  discountPercent: 90
+},
+{
+  id: "p110",
+  name: "15 CM Electric Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 440,
+  discountedPrice: 44,
+  discountPercent: 90
+},
+{
+  id: "p111",
+  name: "15 CM Crackling Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 462,
+  discountedPrice: 46,
+  discountPercent: 90
+},
+{
+  id: "p112",
+  name: "15 CM Green Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 495,
+  discountedPrice: 50,
+  discountPercent: 90
+},
+{
+  id: "p113",
+  name: "30 CM Electric Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 440,
+  discountedPrice: 44,
+  discountPercent: 90
+},
+{
+  id: "p114",
+  name: "30 CM Crackling Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 462,
+  discountedPrice: 46,
+  discountPercent: 90
+},
+{
+  id: "p115",
+  name: "30 CM Green Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 495,
+  discountedPrice: 50,
+  discountPercent: 90
+},
+{
+  id: "p116",
+  name: "50 CM Electric Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1430,
+  discountedPrice: 143,
+  discountPercent: 90
+},
+{
+  id: "p117",
+  name: "50 CM Crackling Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1650,
+  discountedPrice: 165,
+  discountPercent: 90
+},
+{
+  id: "p118",
+  name: "Spring Sparklers",
+  category: "Sparklers",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1980,
+  discountedPrice: 198,
+  discountPercent: 90
+},
+
+//Gift Boxed
+{
+  id: "p119",
+  name: "21 Items",
+  category: "Gift Boxed",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 350,
+  discountedPrice: 350,
+  discountPercent: 90
+},
+{
+  id: "p120",
+  name: "27 Items",
+  category: "Gift Boxed",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 500,
+  discountedPrice: 500,
+  discountPercent: 90
+},
+{
+  id: "p121",
+  name: "33 Items",
+  category: "Gift Boxed",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 600,
+  discountedPrice: 600,
+  discountPercent: 90
+},
+{
+  id: "p122",
+  name: "40 Items",
+  category: "Gift Boxed",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 900,
+  discountedPrice: 900,
+  discountPercent: 90
+},
+{
+  id: "p123",
+  name: "50 Items",
+  category: "Gift Boxed",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1300,
+  discountedPrice: 1300,
+  discountPercent: 90
+},
+{
+  id: "p124",
+  name: "60 Items",
+  category: "Gift Boxed",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1800,
+  discountedPrice: 1800,
+  discountPercent: 90
+},
+
+//2025 Diwali New Varities
+{
+  id: "p125",
+  name: "Motu Patlu",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p126",
+  name: "Cricket Bat Fountain",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 3300,
+  discountedPrice: 330,
+  discountPercent: 90
+},
+{
+  id: "p127",
+  name: "Hitter",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p128",
+  name: "Cylinder Bomb",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1870,
+  discountedPrice: 187,
+  discountPercent: 90
+},
+{
+  id: "p129",
+  name: "Rope Chakkaram",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2530,
+  discountedPrice: 253,
+  discountPercent: 90
+},
+{
+  id: "p130",
+  name: "Fruits Fountain",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 2200,
+  discountedPrice: 220,
+  discountPercent: 90
+},
+{
+  id: "p131",
+  name: "Moving Car",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1760,
+  discountedPrice: 176,
+  discountPercent: 90
+},
+{
+  id: "p132",
+  name: "Hanuman Kadha",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1980,
+  discountedPrice: 198,
+  discountPercent: 90
+},
+{
+  id: "p133",
+  name: "Dil Khushi (2 Pcs)",
+  category: "2025 Diwali New Varieties",
+  image: image1,
+  otherImages: [image2],
+  originalPrice: 1870,
+  discountedPrice: 187,
+  discountPercent: 90
+}
 ];
 
 export default products;

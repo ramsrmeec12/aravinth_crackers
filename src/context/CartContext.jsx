@@ -64,8 +64,7 @@ export function CartProvider({ children }) {
     });
   };
 
-  // Update quantity of an item
-  // Update quantity of an item
+
   const updateQty = async (id, qty) => {
     // Update local state
     setCart((prev) => {

@@ -67,7 +67,7 @@ const CartPage = () => {
                 <div>
                   <h3 className="font-medium">{item.name}</h3>
                   <p className="text-sm text-gray-500">
-                    {item.category} • {item.subcategory}
+                    {item.category}
                   </p>
                   <p className="text-gray-800 font-semibold">
                     ₹{item.originalPrice} x {item.qty} = ₹{(item.originalPrice || 0) * item.qty}

@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
       <div className="p-4">
         <h3 className="font-medium text-base">{product.name}</h3>
         <p className="text-sm text-gray-500">
-          {product.category} • {product.subcategory}
+          {product.category} 
         </p>
 
         {/* Price Section */}
