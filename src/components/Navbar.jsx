@@ -28,16 +28,18 @@ export default function Navbar() {
     }
   };
 
-  useEffect(() => {
-    if (searchTerm.trim() === "") {
-      setFilteredResults([]);
-    } else {
-      const results = productsData.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredResults(results);
-    }
-  }, [searchTerm]);
+ useEffect(() => {
+  if (searchTerm.trim() === "") {
+    setFilteredResults([]);
+  } else {
+    const results = productsData.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.id.toLowerCase().includes(searchTerm.toLowerCase()) // ✅ match by ID
+    );
+    setFilteredResults(results);
+  }
+}, [searchTerm]);
+
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();

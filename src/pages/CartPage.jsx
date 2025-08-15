@@ -7,12 +7,14 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const CartPage = () => {
   const { user } = useAuth();
-  const { cart, clearCart, updateQty, removeFromCart } = useCart(); // ✅ changed updateQuantity → updateQty
+  const { cart, clearCart, updateQty, removeFromCart } = useCart();
   const navigate = useNavigate();
 
   const [address, setAddress] = useState("");
+  const [pincode, setPincode] = useState("");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
+  const [email, setEmail] = useState(""); // ✅ new
   const [error, setError] = useState("");
 
   const placeOrder = async () => {
@@ -20,8 +22,8 @@ const CartPage = () => {
       navigate("/login");
       return;
     }
-    if (!name || !phone || !address) {
-      setError("Please fill all the details");
+    if (!name || !phone || !address || !pincode || !email) {
+      setError("Please fill all the details including Email & Pincode");
       return;
     }
 
@@ -31,12 +33,17 @@ const CartPage = () => {
         items: cart,
         name,
         phone,
+        email, // ✅ store email
         address,
-        totalAmount: cart.reduce((sum, item) => sum + (item.price || 0) * item.qty, 0),
-        createdAt: serverTimestamp()
+        pincode,
+        totalAmount: cart.reduce(
+          (sum, item) => sum + (item.price || 0) * item.qty,
+          0
+        ),
+        createdAt: serverTimestamp(),
       });
 
-      clearCart(); // ✅ will now remove all products
+      clearCart();
       navigate("/orders");
     } catch (err) {
       console.error("Error placing order:", err);
@@ -44,7 +51,10 @@ const CartPage = () => {
     }
   };
 
-  const totalPrice = cart.reduce((sum, item) => sum + (item.originalPrice || 0) * item.qty, 0);
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + (item.originalPrice || 0) * item.qty,
+    0
+  );
 
   return (
     <div className="p-4 max-w-3xl mx-auto">
@@ -66,11 +76,10 @@ const CartPage = () => {
                 />
                 <div>
                   <h3 className="font-medium">{item.name}</h3>
-                  <p className="text-sm text-gray-500">
-                    {item.category}
-                  </p>
+                  <p className="text-sm text-gray-500">{item.category}</p>
                   <p className="text-gray-800 font-semibold">
-                    ₹{item.originalPrice} x {item.qty} = ₹{(item.originalPrice || 0) * item.qty}
+                    ₹{item.originalPrice} x {item.qty} = ₹
+                    {(item.originalPrice || 0) * item.qty}
                   </p>
                 </div>
               </div>
@@ -115,10 +124,24 @@ const CartPage = () => {
               className="border rounded w-full p-2 mb-2"
             />
             <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="border rounded w-full p-2 mb-2"
+            />
+            <input
               type="tel"
               placeholder="Phone Number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              className="border rounded w-full p-2 mb-2"
+            />
+            <input
+              type="text"
+              placeholder="Pincode"
+              value={pincode}
+              onChange={(e) => setPincode(e.target.value)}
               className="border rounded w-full p-2 mb-2"
             />
             <textarea

@@ -1,10 +1,15 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // ✅ Import Auth context
 
 const ProductCard = ({ product }) => {
   const { addToCart, cart } = useCart();
+  const { user } = useAuth(); // ✅ Get logged in user
   const isInCart = cart.some((item) => item.id === product.id);
+
+  // Check if admin (replace with your actual admin UID or role logic)
+  const isAdmin = user && user.email === "ram123@gmail.co";
 
   return (
     <div className="bg-white shadow-sm rounded-lg overflow-hidden hover:shadow-md transition">
@@ -16,10 +21,13 @@ const ProductCard = ({ product }) => {
         />
       </Link>
       <div className="p-4">
-        <h3 className="font-medium text-base">{product.name}</h3>
-        <p className="text-sm text-gray-500">
-          {product.category} 
-        </p>
+        <div className="flex justify-between items-center">
+          <h3 className="font-medium text-base">{product.name}</h3>
+          {isAdmin && (
+            <span className="text-xs text-gray-500">ID: {product.id}</span>
+          )}
+        </div>
+        <p className="text-sm text-gray-500">{product.category}</p>
 
         {/* Price Section */}
         <div className="mt-2 flex items-center gap-2">
