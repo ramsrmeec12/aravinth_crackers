@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import productsData from "../data";
 import ProductCard from "../components/ProductsCard";
@@ -36,30 +36,45 @@ const ProductsPage = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
       {/* Category Filter */}
-      <div className="flex gap-3 overflow-x-auto mb-6 scrollbar-hide">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-2 rounded-full border text-sm ${
-              selectedCategory === cat
-                ? "bg-yellow-500 text-white border-yellow-500"
-                : "bg-white text-gray-700 border-gray-300"
+      <div className="flex flex-wrap gap-3 mb-6 items-center">
+        {/* All Button */}
+        <button
+          onClick={() => setSelectedCategory("All")}
+          className={`px-4 py-2 rounded-lg border text-sm font-medium ${selectedCategory === "All"
+              ? "bg-yellow-500 text-white border-yellow-500"
+              : "bg-white text-gray-700 border-gray-300 hover:bg-yellow-100"
             }`}
-          >
-            {cat}
-          </button>
-        ))}
+        >
+          All
+        </button>
+
+        {/* Dropdown for other categories */}
+        <select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          className="px-4 py-2 rounded-lg border text-sm bg-white text-gray-700 border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        >
+          {categories
+            .filter((cat) => cat !== "All")
+            .map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+        </select>
       </div>
+
+
+
 
       {/* All view */}
       {selectedCategory === "All" ? (
         groupedByCategory.map((group) => (
-          <div key={group.category} className="mb-8">
+          <div key={group.category} className="mb-8 pl-4">
             <h2 className="text-xl font-bold mb-3">{group.category}</h2>
             <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
               {group.products.map((product) => (
-                <div className="min-w-[200px]" key={product.id}>
+                <div className="min-w-[200px] pl-4" key={product.id}>
                   <ProductCard product={product} />
                 </div>
               ))}
