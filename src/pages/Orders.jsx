@@ -15,16 +15,23 @@ export default function Orders() {
     const q = query(ordersRef, where("userId", "==", user.uid));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      setOrders(
-        snapshot.docs.map((doc) => ({
+      const sortedOrders = snapshot.docs
+        .map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }))
-      );
+        .sort((a, b) => {
+          const numA = parseInt(a.id.split("-").pop(), 10); // last part after dash
+          const numB = parseInt(b.id.split("-").pop(), 10);
+          return numB - numA; // newest first
+        });
+
+      setOrders(sortedOrders);
     });
 
     return () => unsubscribe();
   }, [user]);
+
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -66,7 +73,7 @@ export default function Orders() {
                 >
                   {order.status || "Pending"}
                 </span>
-                
+
 
               </div>
 
@@ -107,13 +114,13 @@ export default function Orders() {
                 )}
               </div>
               {/* Tracking Info if shipped */}
-                {order.status === "Shipped" && (
-                  <div className="mt-3 bg-blue-50 p-3 rounded text-sm">
-                    <h1 className="text-2xl">Shipping details :</h1><br />
-                    <p><strong>Courier:</strong> {order.courierName || "N/A"}</p>
-                    <p><strong>Tracking ID:</strong> {order.trackingId || "N/A"}</p>
-                  </div>
-                )}
+              {order.status === "Shipped" && (
+                <div className="mt-3 bg-blue-50 p-3 rounded text-sm">
+                  <h1 className="text-2xl">Shipping details :</h1><br />
+                  <p><strong>Courier:</strong> {order.courierName || "N/A"}</p>
+                  <p><strong>Tracking ID:</strong> {order.trackingId || "N/A"}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>
