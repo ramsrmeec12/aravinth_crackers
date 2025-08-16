@@ -65,7 +65,7 @@ const ProductsPage = () => {
         >
           All
         </button>
-        <button onClick={()=>navigate('/combos')} className="px-4 py-2 rounded-lg border text-sm font-medium">Explore Combos</button>
+        <button onClick={()=>navigate('/combos')} className="px-1.5 py-2 rounded-lg border text-sm font-medium">Explore Combos</button>
 
         {/* Dropdown for other categories */}
         <select
@@ -75,7 +75,7 @@ const ProductsPage = () => {
             setSearchTerm(""); // reset search
             navigate("/products"); // clear search query
           }}
-          className="px-4 py-2 rounded-lg border text-sm bg-white text-gray-700 border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          className="px-2 py-2 rounded-lg border text-sm bg-white text-gray-700 border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         >
           {categories
             .filter((cat) => cat !== "All")
