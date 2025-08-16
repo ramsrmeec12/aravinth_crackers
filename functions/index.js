@@ -11,7 +11,6 @@ const db = getFirestore();
 exports.notifyAdminOnNewOrder = onDocumentCreated("orders/{orderId}", async (event) => {
   const order = event.data.data();
 
-  // Get all admin tokens from Firestore
   const tokensSnap = await db.collection("adminTokens").get();
   const tokens = tokensSnap.docs.map((doc) => doc.data().token);
 
@@ -22,9 +21,13 @@ exports.notifyAdminOnNewOrder = onDocumentCreated("orders/{orderId}", async (eve
         title: "🛒 New Order",
         body: `Order from ${order.name} - ₹${order.totalAmount}`,
       },
+      data: {
+        click_action: "https://aravinth-crackers-f878f.web.app/admin/orders", // ✅ opens admin on tap
+      },
     });
     console.log("Notification sent to admins");
   } else {
     console.log("No admin tokens found");
   }
 });
+

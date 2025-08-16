@@ -28,7 +28,7 @@ export default function AdminDashboard() {
 
         // Get FCM token
         const token = await getToken(messaging, {
-          vapidKey: "YOUR_VAPID_KEY_FROM_FIREBASE_CONSOLE",
+          vapidKey: "BEGlN7Mly2LNxTUvDGH8UT2ZBzc248pYbJP8w4F_kEBOvhp2Ygtl0YBLoMM5v6mDNcYgXFLjwLWiq1ztgLErFSs",
         });
 
         if (token) {
