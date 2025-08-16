@@ -21,6 +21,16 @@ const combos = [
     discountedPrice: 1800,
     discountPercent: 10,
   },
+  {
+    comboId: "c3",
+    name: "Combo 2000",
+    coverImage: cover2000,
+    products: ["p1", "p2", "p3"], 
+    originalPrice: 2000,
+    discountedPrice: 1800,
+    discountPercent: 10,
+  },
+  
   // add more combos
 ];
 

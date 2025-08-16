@@ -1,4 +1,3 @@
-import React from "react";
 import combosData, { combosWithProducts } from "../combosData";
 import ComboCard from "../components/ComboCard";
 

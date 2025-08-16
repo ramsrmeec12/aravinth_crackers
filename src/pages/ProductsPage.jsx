@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import productsData from "../data";
 import ProductCard from "../components/ProductsCard";
+import ComboCard from "../components/ComboCard"; // ✅ Import ComboCard
+import { combosWithProducts } from "../combosData"; // ✅ Import combos data
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -15,14 +17,12 @@ const ProductsPage = () => {
 
   const categories = ["All", ...new Set(productsData.map((p) => p.category))];
 
-  // Initialize search term from URL
   useEffect(() => {
     const search = query.get("search") || "";
     setSearchTerm(search);
     if (search) setSelectedCategory("All");
   }, [query]);
 
-  // Filter products based on category and search term
   const filteredProducts = productsData.filter(
     (p) =>
       (selectedCategory === "All" || p.category === selectedCategory) &&
@@ -31,7 +31,6 @@ const ProductsPage = () => {
         p.id.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  // Group products by category for "All" view
   const groupedByCategory = categories
     .filter((cat) => cat !== "All")
     .map((cat) => ({
@@ -44,18 +43,17 @@ const ProductsPage = () => {
             p.id.toLowerCase().includes(searchTerm.toLowerCase()))
       ),
     }))
-    .filter((group) => group.products.length > 0); // hide empty categories
+    .filter((group) => group.products.length > 0);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
       {/* Category Filter */}
       <div className="flex flex-wrap gap-3 mb-6 items-center">
-        {/* All Button */}
         <button
           onClick={() => {
             setSelectedCategory("All");
-            setSearchTerm(""); // reset search
-            navigate("/products"); // clear search query
+            setSearchTerm("");
+            navigate("/products");
           }}
           className={`px-4 py-2 rounded-lg border text-sm font-medium ${
             selectedCategory === "All"
@@ -65,15 +63,19 @@ const ProductsPage = () => {
         >
           All
         </button>
-        <button onClick={()=>navigate('/combos')} className="px-1.5 py-2 rounded-lg border text-sm font-medium">Explore Combos</button>
+        <button
+          onClick={() => navigate("/combos")}
+          className="px-1.5 py-2 rounded-lg border text-sm font-medium"
+        >
+          Explore Combos
+        </button>
 
-        {/* Dropdown for other categories */}
         <select
           value={selectedCategory}
           onChange={(e) => {
             setSelectedCategory(e.target.value);
-            setSearchTerm(""); // reset search
-            navigate("/products"); // clear search query
+            setSearchTerm("");
+            navigate("/products");
           }}
           className="px-2 py-2 rounded-lg border text-sm bg-white text-gray-700 border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         >
@@ -85,6 +87,18 @@ const ProductsPage = () => {
               </option>
             ))}
         </select>
+      </div>
+
+      {/* ✅ Horizontal Combos Section */}
+      <div className="mb-6">
+        <h2 className="text-xl font-bold mb-3">Popular Combos</h2>
+        <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+          {combosWithProducts.map((combo) => (
+            <div className="min-w-[220px]" key={combo.comboId}>
+              <ComboCard combo={combo} />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* All view */}
@@ -102,7 +116,6 @@ const ProductsPage = () => {
           </div>
         ))
       ) : (
-        // Category view → grid
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
