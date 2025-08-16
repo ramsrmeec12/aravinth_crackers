@@ -1,3 +1,4 @@
+// src/pages/CartPage.jsx
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
@@ -9,6 +10,7 @@ import {
   setDoc,
   serverTimestamp,
 } from "firebase/firestore";
+import emailjs from "emailjs-com";
 
 const CartPage = () => {
   const { user } = useAuth();
@@ -21,7 +23,12 @@ const CartPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // ✅ New state
+  const [loading, setLoading] = useState(false);
+
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + (item.originalPrice || 0) * item.qty,
+    0
+  );
 
   const placeOrder = async () => {
     if (!user) {
@@ -33,7 +40,7 @@ const CartPage = () => {
       return;
     }
 
-    setLoading(true); // ✅ Disable button & show loading
+    setLoading(true);
 
     try {
       // 🔹 Firestore transaction to generate incremental order number
@@ -65,27 +72,41 @@ const CartPage = () => {
         address,
         pincode,
         items: cart,
-        totalAmount: cart.reduce(
-          (sum, item) => sum + (item.originalPrice || 0) * item.qty,
-          0
-        ),
+        totalAmount: totalPrice,
         status: "Pending",
         createdAt: serverTimestamp(),
       });
+
+      // 🔹 Send Email to Owner via EmailJS
+      try {
+        await emailjs.send(
+          "service_abesg1t", // Service ID
+          "template_qo3uvyp", // Template ID
+          {
+            orderId: formattedOrderId,
+            name,
+            phone,
+            email,
+            address,
+            pincode,
+            totalAmount: totalPrice,
+            items: cart.map((i) => `${i.name} × ${i.qty}`).join(", "),
+          },
+          "J9g8Sa8UDvFpJeS9m" // Public key
+        );
+        console.log("✅ Email sent to owner");
+      } catch (emailErr) {
+        console.error("❌ EmailJS Error:", emailErr);
+      }
 
       clearCart();
       navigate("/orders");
     } catch (err) {
       console.error("Error placing order:", err);
       setError("Failed to place order. Please try again.");
-      setLoading(false); // re-enable button if failed
+      setLoading(false);
     }
   };
-
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + (item.originalPrice || 0) * item.qty,
-    0
-  );
 
   return (
     <div className="p-4 max-w-3xl mx-auto">
@@ -122,7 +143,7 @@ const CartPage = () => {
                   onClick={() =>
                     updateQty(item.id, Math.max(item.qty - 1, 1))
                   }
-                  disabled={loading} // disable qty buttons during loading
+                  disabled={loading}
                 >
                   -
                 </button>
@@ -130,14 +151,14 @@ const CartPage = () => {
                 <button
                   className="px-2"
                   onClick={() => updateQty(item.id, item.qty + 1)}
-                  disabled={loading} // disable qty buttons during loading
+                  disabled={loading}
                 >
                   +
                 </button>
                 <button
                   className="ml-4 text-red-500"
                   onClick={() => removeFromCart(item.id)}
-                  disabled={loading} // disable remove button during loading
+                  disabled={loading}
                 >
                   Remove
                 </button>
