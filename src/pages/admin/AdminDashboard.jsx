@@ -3,6 +3,11 @@ import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import AdminLayout from "./AdminLayout";
 import AdminOrderCard from "./AdminOrderCard";
+import { messaging } from "../../firebase";
+import { getToken, onMessage } from "firebase/messaging";
+import { doc, setDoc } from "firebase/firestore";
+import { useAuth } from "../../context/AuthContext";
+
 
 export default function AdminDashboard() {
   const [orders, setOrders] = useState([]);
@@ -10,6 +15,43 @@ export default function AdminDashboard() {
   
   // Notification sound
   const notificationSound = useRef(new Audio("/notification.mp3")); // place notification.mp3 in public/
+
+  const { user } = useAuth();
+
+useEffect(() => {
+  if (!user) return;
+
+  const registerFCM = async () => {
+    try {
+      const token = await getToken(messaging, {
+        vapidKey: "BEGlN7Mly2LNxTUvDGH8UT2ZBzc248pYbJP8w4F_kEBOvhp2Ygtl0YBLoMM5v6mDNcYgXFLjwLWiq1ztgLErFSs", // from Firebase Console
+      });
+
+      if (token) {
+        console.log("FCM Token:", token);
+
+        // Save admin token in Firestore for Cloud Function to use
+        await setDoc(doc(db, "adminTokens", user.uid), {
+          token,
+          updatedAt: new Date(),
+        });
+      }
+    } catch (err) {
+      console.error("FCM Error:", err);
+    }
+  };
+
+  registerFCM();
+
+  // Foreground message listener
+  onMessage(messaging, (payload) => {
+    console.log("Foreground notification:", payload);
+    new Notification(payload.notification.title, {
+      body: payload.notification.body,
+      icon: "/logo.png",
+    });
+  });
+}, [user]);
 
   useEffect(() => {
     const q = query(collection(db, "orders"), orderBy("createdAt", "desc"));
