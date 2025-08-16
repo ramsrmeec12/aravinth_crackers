@@ -30,30 +30,12 @@ export default function OrdersAdminPage() {
     const ordersRef = collection(db, "orders");
     const q = query(ordersRef, orderBy("createdAt", "desc"));
 
-    let firstLoad = true;
     const unsub = onSnapshot(q, (snap) => {
       const newOrders = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-
-      if (!firstLoad && newOrders.length > orders.length) {
-        const latestOrder = newOrders[0];
-        if (Notification.permission === "granted") {
-          new Notification("New Order Received", {
-            body: `${latestOrder.name} placed an order.`,
-          });
-        }
-      }
-
       setOrders(newOrders);
-      firstLoad = false;
     });
 
     return () => unsub();
-  }, []);
-
-  useEffect(() => {
-    if (Notification.permission !== "granted") {
-      Notification.requestPermission();
-    }
   }, []);
 
   const filtered = useMemo(() => {
