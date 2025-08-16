@@ -1,68 +1,84 @@
 import React, { useEffect, useState, useRef } from "react";
-import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
-import { db } from "../../firebase";
+import { collection, onSnapshot, query, orderBy, doc, setDoc } from "firebase/firestore";
+import { db, messaging } from "../../firebase";
 import AdminLayout from "./AdminLayout";
 import AdminOrderCard from "./AdminOrderCard";
-import { messaging } from "../../firebase";
 import { getToken, onMessage } from "firebase/messaging";
-import { doc, setDoc } from "firebase/firestore";
 import { useAuth } from "../../context/AuthContext";
-
 
 export default function AdminDashboard() {
   const [orders, setOrders] = useState([]);
   const prevOrdersRef = useRef([]);
-  
-  // Notification sound
-  const notificationSound = useRef(new Audio("/notification.mp3")); // place notification.mp3 in public/
+  const notificationSound = useRef(new Audio("/notification.mp3")); // in public/
 
   const { user } = useAuth();
 
-useEffect(() => {
-  if (!user) return;
+  // 🔹 Register FCM + save admin token
+  useEffect(() => {
+    if (!user) return;
 
-  const registerFCM = async () => {
-    try {
-      const token = await getToken(messaging, {
-        vapidKey: "BEGlN7Mly2LNxTUvDGH8UT2ZBzc248pYbJP8w4F_kEBOvhp2Ygtl0YBLoMM5v6mDNcYgXFLjwLWiq1ztgLErFSs", // from Firebase Console
-      });
+    const registerFCM = async () => {
+      try {
+        // Ask for notification permission
+        const permission = await Notification.requestPermission();
+        if (permission !== "granted") {
+          console.warn("Notification permission not granted");
+          return;
+        }
 
-      if (token) {
-        console.log("FCM Token:", token);
-
-        // Save admin token in Firestore for Cloud Function to use
-        await setDoc(doc(db, "adminTokens", user.uid), {
-          token,
-          updatedAt: new Date(),
+        // Get FCM token
+        const token = await getToken(messaging, {
+          vapidKey: "YOUR_VAPID_KEY_FROM_FIREBASE_CONSOLE",
         });
+
+        if (token) {
+          console.log("✅ Admin FCM Token:", token);
+
+          // Save admin’s device token in Firestore
+          await setDoc(
+            doc(db, "adminTokens", user.uid),
+            {
+              token,
+              updatedAt: new Date(),
+            },
+            { merge: true }
+          );
+        }
+      } catch (err) {
+        console.error("❌ FCM Error:", err);
       }
-    } catch (err) {
-      console.error("FCM Error:", err);
-    }
-  };
+    };
 
-  registerFCM();
+    registerFCM();
 
-  // Foreground message listener
-  onMessage(messaging, (payload) => {
-    console.log("Foreground notification:", payload);
-    new Notification(payload.notification.title, {
-      body: payload.notification.body,
-      icon: "/logo.png",
+    // 🔹 Foreground message handler
+    const unsubscribeOnMessage = onMessage(messaging, (payload) => {
+      console.log("📩 Foreground notification:", payload);
+      notificationSound.current.play().catch(() => {});
+
+      new Notification(payload.notification?.title || "New Order", {
+        body: payload.notification?.body || "You received a new order.",
+        icon: "/logo.png",
+      });
     });
-  });
-}, [user]);
 
+    return () => unsubscribeOnMessage();
+  }, [user]);
+
+  // 🔹 Orders real-time listener
   useEffect(() => {
     const q = query(collection(db, "orders"), orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const fetchedOrders = snapshot.docs.map(doc => ({
+      const fetchedOrders = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      
-      // Check for new order
-      if (prevOrdersRef.current.length && fetchedOrders.length > prevOrdersRef.current.length) {
+
+      // Detect new order (local check)
+      if (
+        prevOrdersRef.current.length &&
+        fetchedOrders.length > prevOrdersRef.current.length
+      ) {
         handleNewOrderNotification();
       }
 
@@ -74,17 +90,13 @@ useEffect(() => {
   }, []);
 
   const handleNewOrderNotification = () => {
-    // Play sound
-    notificationSound.current.play().catch(err => console.log("Sound error:", err));
+    notificationSound.current.play().catch(() => {});
 
-    // Browser notification
     if (Notification.permission === "granted") {
       new Notification("🛒 New Order Received!", {
         body: "A new customer order has been placed.",
-        icon: "/logo.png", // your site logo in public folder
+        icon: "/logo.png",
       });
-    } else if (Notification.permission !== "denied") {
-      Notification.requestPermission();
     }
   };
 
