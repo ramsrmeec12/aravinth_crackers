@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import productsData from "../data";
 import ProductCard from "../components/ProductsCard";
 
@@ -11,27 +11,40 @@ const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const query = useQuery();
+  const navigate = useNavigate();
 
   const categories = ["All", ...new Set(productsData.map((p) => p.category))];
 
+  // Initialize search term from URL
   useEffect(() => {
     const search = query.get("search") || "";
     setSearchTerm(search);
     if (search) setSelectedCategory("All");
   }, [query]);
 
-  const filteredProducts =
-    selectedCategory === "All"
-      ? productsData
-      : productsData.filter((p) => p.category === selectedCategory);
+  // Filter products based on category and search term
+  const filteredProducts = productsData.filter(
+    (p) =>
+      (selectedCategory === "All" || p.category === selectedCategory) &&
+      (searchTerm === "" ||
+        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.id.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
 
   // Group products by category for "All" view
   const groupedByCategory = categories
     .filter((cat) => cat !== "All")
     .map((cat) => ({
       category: cat,
-      products: productsData.filter((p) => p.category === cat),
-    }));
+      products: productsData.filter(
+        (p) =>
+          p.category === cat &&
+          (searchTerm === "" ||
+            p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            p.id.toLowerCase().includes(searchTerm.toLowerCase()))
+      ),
+    }))
+    .filter((group) => group.products.length > 0); // hide empty categories
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
@@ -39,19 +52,29 @@ const ProductsPage = () => {
       <div className="flex flex-wrap gap-3 mb-6 items-center">
         {/* All Button */}
         <button
-          onClick={() => setSelectedCategory("All")}
-          className={`px-4 py-2 rounded-lg border text-sm font-medium ${selectedCategory === "All"
+          onClick={() => {
+            setSelectedCategory("All");
+            setSearchTerm(""); // reset search
+            navigate("/products"); // clear search query
+          }}
+          className={`px-4 py-2 rounded-lg border text-sm font-medium ${
+            selectedCategory === "All"
               ? "bg-yellow-500 text-white border-yellow-500"
               : "bg-white text-gray-700 border-gray-300 hover:bg-yellow-100"
-            }`}
+          }`}
         >
           All
         </button>
+        <button onClick={()=>navigate('/combos')} className="px-4 py-2 rounded-lg border text-sm font-medium">Explore Combos</button>
 
         {/* Dropdown for other categories */}
         <select
           value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
+          onChange={(e) => {
+            setSelectedCategory(e.target.value);
+            setSearchTerm(""); // reset search
+            navigate("/products"); // clear search query
+          }}
           className="px-4 py-2 rounded-lg border text-sm bg-white text-gray-700 border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         >
           {categories
@@ -63,9 +86,6 @@ const ProductsPage = () => {
             ))}
         </select>
       </div>
-
-
-
 
       {/* All view */}
       {selectedCategory === "All" ? (

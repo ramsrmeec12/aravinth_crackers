@@ -7,7 +7,6 @@ import {
   doc,
   runTransaction,
   setDoc,
-  collection,
   serverTimestamp,
 } from "firebase/firestore";
 
@@ -22,6 +21,7 @@ const CartPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); // ✅ New state
 
   const placeOrder = async () => {
     if (!user) {
@@ -32,6 +32,8 @@ const CartPage = () => {
       setError("Please fill all the details including Email & Pincode");
       return;
     }
+
+    setLoading(true); // ✅ Disable button & show loading
 
     try {
       // 🔹 Firestore transaction to generate incremental order number
@@ -47,7 +49,6 @@ const CartPage = () => {
         return updatedCount;
       });
 
-      // 🔹 Structured Order ID: ORD-YYYY-XXXX
       const year = new Date().getFullYear();
       const formattedOrderId = `ORD-${year}-${String(newOrderNumber).padStart(
         4,
@@ -77,6 +78,7 @@ const CartPage = () => {
     } catch (err) {
       console.error("Error placing order:", err);
       setError("Failed to place order. Please try again.");
+      setLoading(false); // re-enable button if failed
     }
   };
 
@@ -105,7 +107,9 @@ const CartPage = () => {
                 />
                 <div>
                   <h3 className="font-medium">{item.name}</h3>
-                  <p className="text-sm text-gray-500">{item.category}</p>
+                  {item.type !== "combo" && (
+                    <p className="text-sm text-gray-500">{item.category}</p>
+                  )}
                   <p className="text-gray-800 font-semibold">
                     ₹{item.originalPrice} x {item.qty} = ₹
                     {(item.originalPrice || 0) * item.qty}
@@ -118,6 +122,7 @@ const CartPage = () => {
                   onClick={() =>
                     updateQty(item.id, Math.max(item.qty - 1, 1))
                   }
+                  disabled={loading} // disable qty buttons during loading
                 >
                   -
                 </button>
@@ -125,12 +130,14 @@ const CartPage = () => {
                 <button
                   className="px-2"
                   onClick={() => updateQty(item.id, item.qty + 1)}
+                  disabled={loading} // disable qty buttons during loading
                 >
                   +
                 </button>
                 <button
                   className="ml-4 text-red-500"
                   onClick={() => removeFromCart(item.id)}
+                  disabled={loading} // disable remove button during loading
                 >
                   Remove
                 </button>
@@ -153,6 +160,7 @@ const CartPage = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="border rounded w-full p-2 mb-2"
+              disabled={loading}
             />
             <input
               type="email"
@@ -160,6 +168,7 @@ const CartPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="border rounded w-full p-2 mb-2"
+              disabled={loading}
             />
             <input
               type="tel"
@@ -167,6 +176,7 @@ const CartPage = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="border rounded w-full p-2 mb-2"
+              disabled={loading}
             />
             <input
               type="text"
@@ -174,20 +184,27 @@ const CartPage = () => {
               value={pincode}
               onChange={(e) => setPincode(e.target.value)}
               className="border rounded w-full p-2 mb-2"
+              disabled={loading}
             />
             <textarea
               placeholder="Full Address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className="border rounded w-full p-2 mb-2"
+              disabled={loading}
             />
           </div>
 
           <button
             onClick={placeOrder}
-            className="mt-4 w-full px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600"
+            disabled={loading}
+            className={`mt-4 w-full px-4 py-2 font-semibold rounded-lg ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed text-white"
+                : "bg-yellow-500 hover:bg-yellow-600 text-white"
+            }`}
           >
-            Place Order
+            {loading ? "Placing your order..." : "Place Order"}
           </button>
         </>
       )}

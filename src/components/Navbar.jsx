@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ShoppingCart, Menu, X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext"; // ✅ Import cart context
+import { useNavigate, useLocation } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import logo from "../assets/logo.png";
 import productsData from "../data";
 import { useAuth } from "../context/AuthContext";
@@ -11,36 +11,45 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
-  const navigate = useNavigate();
   const searchRef = useRef(null);
-  const { user, logout } = useAuth();
 
-  const { cartCount } = useCart(); // ✅ Get cart count from context
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { user } = useAuth();
+  const { cartCount } = useCart();
   const auth = getAuth();
 
+  // Logout handler
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      // Optionally, redirect or update UI after logout
-      window.location.href = "/login"; // or use react-router navigate
+      window.location.href = "/login"; // or navigate("/login")
     } catch (err) {
       console.error("Logout error:", err);
     }
   };
 
- useEffect(() => {
-  if (searchTerm.trim() === "") {
+  // Filter search suggestions
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setFilteredResults([]);
+    } else {
+      const results = productsData.filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          product.id.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredResults(results);
+    }
+  }, [searchTerm]);
+
+  // Clear suggestions when route changes
+  useEffect(() => {
     setFilteredResults([]);
-  } else {
-    const results = productsData.filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.id.toLowerCase().includes(searchTerm.toLowerCase()) // ✅ match by ID
-    );
-    setFilteredResults(results);
-  }
-}, [searchTerm]);
+  }, [location.pathname]);
 
-
+  // Search submit handler
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchTerm.trim() !== "") {
@@ -50,6 +59,7 @@ export default function Navbar() {
     }
   };
 
+  // Click on suggestion
   const handleResultClick = (productName) => {
     setSearchTerm(productName);
     navigate(`/products?search=${encodeURIComponent(productName)}`);
@@ -71,11 +81,11 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <a href="/">Home</a>
           <a href="/products">Products</a>
-          <a href="about">About Us</a>
-          <a href="contact">Contact</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
         </nav>
 
-        {/* Search bar Desktop */}
+        {/* Desktop Search */}
         <form
           onSubmit={handleSearchSubmit}
           className="hidden md:flex flex-col items-start relative"
@@ -132,7 +142,7 @@ export default function Navbar() {
             </button>
           )}
 
-          {/* Cart Icon with Count */}
+          {/* Cart */}
           <div className="relative cursor-pointer" onClick={() => navigate("/cart")}>
             <ShoppingCart className="w-5 h-5" />
             {cartCount > 0 && (
@@ -142,7 +152,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile menu toggle */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -191,20 +201,30 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden pt-2 px-4 pb-4 space-y-3 text-sm font-medium bg-white shadow-md rounded">
-          <a href="/" className="block" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="/products" className="block" onClick={() => setIsOpen(false)}>Products</a>
-          <a href="about" className="block" onClick={() => setIsOpen(false)}>About Us</a>
-          <a href="contact" className="block" onClick={() => setIsOpen(false)}>Contact</a>
+          <a href="/" className="block" onClick={() => setIsOpen(false)}>
+            Home
+          </a>
+          <a href="/products" className="block" onClick={() => setIsOpen(false)}>
+            Products
+          </a>
+          <a href="/about" className="block" onClick={() => setIsOpen(false)}>
+            About Us
+          </a>
+          <a href="/contact" className="block" onClick={() => setIsOpen(false)}>
+            Contact
+          </a>
 
-          <button
-            onClick={() => {
-              handleLogout();
-              setIsOpen(false);
-            }}
-            className="w-full text-left text-red-600 hover:text-red-800"
-          >
-            Logout
-          </button>
+          {user && (
+            <button
+              onClick={() => {
+                handleLogout();
+                setIsOpen(false);
+              }}
+              className="w-full text-left text-red-600 hover:text-red-800"
+            >
+              Logout
+            </button>
+          )}
         </div>
       )}
     </header>

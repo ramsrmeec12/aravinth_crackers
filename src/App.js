@@ -13,7 +13,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Footersec from "./components/Footer";
 import AboutUs from "./components/Aboutus";
 import ContactUs from "./components/Contact";
-
+import CombosPage from "./pages/CombosPage";
+import ComboDetailsPage from "./pages/ComboDetailsPage";
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
       <Route path="/about" element={<AboutUs></AboutUs>}></Route>
       <Route path="/contact" element={<ContactUs></ContactUs>}></Route>
        <Route path="/product/:id" element={<ProductDetails />} />
+       <Route path="/combos" element={<CombosPage />} />
+       <Route path="/combo/:id" element={<ComboDetailsPage />} />
+       
       Admin section
       <Route path="/admin" element={
         <AdminRoute>
