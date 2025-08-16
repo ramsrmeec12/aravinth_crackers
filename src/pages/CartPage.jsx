@@ -80,8 +80,8 @@ const CartPage = () => {
       // 🔹 Send Email to Owner via EmailJS
       try {
         await emailjs.send(
-          "service_abesg1t", // Service ID
-          "template_qo3uvyp", // Template ID
+          "service_abesg1t",
+          "template_qo3uvyp", 
           {
             orderId: formattedOrderId,
             name,
@@ -92,7 +92,7 @@ const CartPage = () => {
             totalAmount: totalPrice,
             items: cart.map((i) => `${i.name} × ${i.qty}`).join(", "),
           },
-          "J9g8Sa8UDvFpJeS9m" // Public key
+          "J9g8Sa8UDvFpJeS9m"
         );
         console.log("✅ Email sent to owner");
       } catch (emailErr) {
