@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { useAuth } from "../context/AuthContext";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
+import InvoiceGenerator from "../components/InvoiceGenerator";
 
 export default function Orders() {
   const { user } = useAuth();
@@ -73,6 +74,17 @@ export default function Orders() {
                 >
                   {order.status || "Pending"}
                 </span>
+
+                <InvoiceGenerator
+                  order={order}
+                  shopInfo={{
+                    name: "Aravinth Crackers Store",
+                    address: "123 Main Street, Chennai, India - 600001",
+                    contact: "Phone: +91 9876543210 | Email: info@aravinthcrackers.com",
+                  }}
+                />
+
+
 
 
               </div>

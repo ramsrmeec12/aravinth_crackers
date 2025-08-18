@@ -10,6 +10,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { CSVLink } from "react-csv";
+import InvoiceGenerator from "../../components/InvoiceGenerator";
 
 const STATUS_OPTIONS = [
   "Pending",
@@ -230,6 +231,14 @@ export default function OrdersAdminPage() {
                 <p className="mt-2 font-semibold text-right">
                   Total: ₹{total.toLocaleString()}
                 </p>
+                <InvoiceGenerator
+                  order={order}
+                  shopInfo={{
+                    name: "Aravinth Crackers Store",
+                    address: "123 Main Street, Chennai, India - 600001",
+                    contact: "Phone: +91 9876543210 | Email: info@aravinthcrackers.com",
+                  }}
+                />
               </div>
             );
           })

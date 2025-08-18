@@ -1,4 +1,4 @@
-import combosData, { combosWithProducts } from "../combosData";
+import  { combosWithProducts } from "../combosData";
 import ComboCard from "../components/ComboCard";
 
 export default function CombosPage() {
