@@ -1,6 +1,43 @@
 import image1 from './assets/image.png';
 import image2 from './assets/image.png';
 
+import kuruvi1 from './assets/products/kuruvi.jpeg'
+import kuruvi2 from './assets/products/kuruvi2.jpeg'
+import lakshmi1 from './assets/products/lakshmi1.jpg'
+import lakshmi2 from './assets/products/lakshmi2.jpeg'
+import goldlakshmi1 from './assets/products/goldlakshmi.jpeg'
+import goldlakshmi2 from './assets/products/goldlakshmi2.jpeg'
+import p3 from './assets/products/p4.jpg'
+import p7 from './assets/products/p7.jpg'
+import p5 from './assets/products/p5.jpg'
+import p8 from './assets/products/p8.jpg'
+import p9 from './assets/products/p9.jpg'
+import p10 from './assets/products/p10.jpg'
+import p11 from './assets/products/p11.jpg'
+import p12 from './assets/products/p12.jpg'
+import p13 from './assets/products/p13.jpg'
+import p17 from './assets/products/p17.jpg'
+import p18 from './assets/products/p18.jpg'
+import p19 from './assets/products/p19.jpg'
+import p20 from './assets/products/p20.jpg'
+import p21 from './assets/products/p21.jpg'
+import p22 from './assets/products/p22.jpg'
+import p23 from './assets/products/p23.jpg'
+import p24 from './assets/products/p24.jpg'
+import p25 from './assets/products/p25.jpg'
+import p26 from './assets/products/p26.jpg'
+import p27 from './assets/products/p27.jpg'
+import p28 from './assets/products/p28.jpeg'
+import p30 from './assets/products/p30.jpg'
+import p31 from './assets/products/p31.jpg'
+import p32 from './assets/products/p32.png'
+import p39 from './assets/products/p39.jpg'
+import p40 from './assets/products/p40.jpg'
+import p41 from './assets/products/p41.jpg'
+import p42 from './assets/products/p42.jpg'
+import p43 from './assets/products/p43.jpg'
+import p44 from './assets/products/p44.jpg'
+
 
 const products = [
   //Single Sound
@@ -8,8 +45,8 @@ const products = [
     id: "p1",
     name: "2 3/4' Kuruvi",
     category: "Single Sound",
-    image: image1,
-    otherImages: [image2],
+    image: kuruvi1,
+    otherImages: [kuruvi2],
     originalPrice: 77,
     discountedPrice: 8,
     discountPercent: 90
@@ -18,8 +55,8 @@ const products = [
     id: "p2",
     name: "3 1/5' Lakshmi",
     category: "Single Sound",
-    image: image1,
-    otherImages: [image2],
+    image: lakshmi1,
+    otherImages: [lakshmi2],
     originalPrice: 132,
     discountedPrice: 13,
     discountPercent: 90
@@ -28,8 +65,8 @@ const products = [
     id: "p3",
     name: "4' Lakshmi/Hulk/Tiger",
     category: "Single Sound",
-    image: image1,
-    otherImages: [image2],
+    image: p3,
+    otherImages: [],
     originalPrice: 176,
     discountedPrice: 18,
     discountPercent: 90
@@ -38,8 +75,8 @@ const products = [
     id: "p4",
     name: "4' Deluxe / Gold Laxmi",
     category: "Single Sound",
-    image: image1,
-    otherImages: [image2],
+    image: goldlakshmi1,
+    otherImages: [goldlakshmi2],
     originalPrice: 418,
     discountedPrice: 42,
     discountPercent: 90
@@ -48,8 +85,8 @@ const products = [
     id: "p5",
     name: "5' Jallikattu/ Kumki",
     category: "Single Sound",
-    image: image1,
-    otherImages: [image2],
+    image: p5,
+    otherImages: [],
     originalPrice: 550,
     discountedPrice: 55,
     discountPercent: 90
@@ -68,8 +105,8 @@ const products = [
     id: "p7",
     name: "Two Sound",
     category: "Single Sound",
-    image: image1,
-    otherImages: [image2],
+    image: p7,
+    otherImages: [],
     originalPrice: 396,
     discountedPrice: 40,
     discountPercent: 90
@@ -81,8 +118,8 @@ const products = [
   id: "p8",
   name: "Ground Chakkars Big (10's)",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p8,
+  otherImages: [p8],
   originalPrice: 352,
   discountedPrice: 35,
   discountPercent: 90
@@ -91,8 +128,8 @@ const products = [
   id: "p9",
   name: "Ground Chakkars Big (25's)",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p9,
+  otherImages: [],
   originalPrice: 715,
   discountedPrice: 72,
   discountPercent: 90
@@ -101,8 +138,8 @@ const products = [
   id: "p10",
   name: "Ground Chakkars Spl",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p10,
+  otherImages: [],
   originalPrice: 770,
   discountedPrice: 77,
   discountPercent: 90
@@ -111,8 +148,8 @@ const products = [
   id: "p11",
   name: "Ground Chakkars Deluxe",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p11,
+  otherImages: [],
   originalPrice: 1100,
   discountedPrice: 110,
   discountPercent: 90
@@ -121,8 +158,8 @@ const products = [
   id: "p12",
   name: "Spinner Chakkaram Spl",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p12,
+  otherImages: [],
   originalPrice: 1210,
   discountedPrice: 121,
   discountPercent: 90
@@ -131,8 +168,8 @@ const products = [
   id: "p13",
   name: "Spinner Chakkaram DLX",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p13,
+  otherImages: [],
   originalPrice: 1430,
   discountedPrice: 143,
   discountPercent: 90
@@ -174,8 +211,8 @@ const products = [
   id: "p17",
   name: "Flower Pots Big",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p17,
+  otherImages: [ ],
   originalPrice: 660,
   discountedPrice: 66,
   discountPercent: 90
@@ -184,8 +221,8 @@ const products = [
   id: "p18",
   name: "Flower Pots Spl",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p18,
+  otherImages: [ ],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -194,8 +231,8 @@ const products = [
   id: "p19",
   name: "Flower Pots Ashoka",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p19,
+  otherImages: [ ],
   originalPrice: 1100,
   discountedPrice: 110,
   discountPercent: 90
@@ -204,8 +241,8 @@ const products = [
   id: "p20",
   name: "Flower Pots DLX (5 Pcs)",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p20,
+  otherImages: [ ],
   originalPrice: 1430,
   discountedPrice: 143,
   discountPercent: 90
@@ -214,8 +251,8 @@ const products = [
   id: "p21",
   name: "Flower Pots SPR Deluxe (2 Pcs)",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p21,
+  otherImages: [],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -224,8 +261,8 @@ const products = [
   id: "p22",
   name: "Color Koti (10's)",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p22,
+  otherImages: [],
   originalPrice: 1980,
   discountedPrice: 198,
   discountPercent: 90
@@ -234,8 +271,8 @@ const products = [
   id: "p23",
   name: "Color Koti DLX/Dazling Pot - 10 Pcs",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p23,
+  otherImages: [ ],
   originalPrice: 2640,
   discountedPrice: 264,
   discountPercent: 90
@@ -244,8 +281,8 @@ const products = [
   id: "p24",
   name: "Monster Pot - 10's",
   category: "Flower Pots",
-  image: image1,
-  otherImages: [image2],
+  image: p24,
+  otherImages: [],
   originalPrice: 3960,
   discountedPrice: 396,
   discountPercent: 90
@@ -256,8 +293,8 @@ const products = [
   id: "p25",
   name: "46cm Twinkling Star",
   category: "Twinkling Star",
-  image: image1,
-  otherImages: [image2],
+  image: p25,
+  otherImages: [ ],
   originalPrice: 275,
   discountedPrice: 28,
   discountPercent: 90
@@ -266,8 +303,8 @@ const products = [
   id: "p26",
   name: "120cm Twinkling Star",
   category: "Twinkling Star",
-  image: image1,
-  otherImages: [image2],
+  image: p26,
+  otherImages: [],
   originalPrice: 660,
   discountedPrice: 66,
   discountPercent: 90
@@ -276,8 +313,8 @@ const products = [
   id: "p27",
   name: "Nayagara Pencil (3 Pcs)",
   category: "Twinkling Star",
-  image: image1,
-  otherImages: [image2],
+  image: p27,
+  otherImages: [],
   originalPrice: 990,
   discountedPrice: 99,
   discountPercent: 90
@@ -286,8 +323,8 @@ const products = [
   id: "p28",
   name: "Star Pencil (2 Pcs)",
   category: "Twinkling Star",
-  image: image1,
-  otherImages: [image2],
+  image: p28,
+  otherImages: [],
   originalPrice: 1430,
   discountedPrice: 143,
   discountPercent: 90
@@ -308,8 +345,8 @@ const products = [
   id: "p30",
   name: "Rockets Bomb",
   category: "Rockets",
-  image: image1,
-  otherImages: [image2],
+  image: p30,
+  otherImages: [],
   originalPrice: 550,
   discountedPrice: 55,
   discountPercent: 90
@@ -318,8 +355,8 @@ const products = [
   id: "p31",
   name: "Lunick Rocket",
   category: "Rockets",
-  image: image1,
-  otherImages: [image2],
+  image: p31,
+  otherImages: [],
   originalPrice: 1100,
   discountedPrice: 110,
   discountPercent: 90
@@ -328,8 +365,8 @@ const products = [
   id: "p32",
   name: "Whistling Rocket",
   category: "Rockets",
-  image: image1,
-  otherImages: [image2],
+  image: p32,
+  otherImages: [],
   originalPrice: 1540,
   discountedPrice: 154,
   discountPercent: 90
@@ -403,8 +440,8 @@ const products = [
   id: "p39",
   name: "Hydro Bomb Green",
   category: "Bomb",
-  image: image1,
-  otherImages: [image2],
+  image: p39,
+  otherImages: [],
   originalPrice: 715,
   discountedPrice: 72,
   discountPercent: 90
@@ -413,8 +450,8 @@ const products = [
   id: "p40",
   name: "Dhamaka / Classic Bomb",
   category: "Bomb",
-  image: image1,
-  otherImages: [image2],
+  image: p40,
+  otherImages: [],
   originalPrice: 1100,
   discountedPrice: 110,
   discountPercent: 90
@@ -423,8 +460,8 @@ const products = [
   id: "p41",
   name: "Dino Thunder Mega Bomb",
   category: "Bomb",
-  image: image1,
-  otherImages: [image2],
+  image: p41,
+  otherImages: [],
   originalPrice: 1870,
   discountedPrice: 187,
   discountPercent: 90
@@ -433,8 +470,8 @@ const products = [
   id: "p42",
   name: "Paper Bomb ( Adiyal ) 1/4 Kg",
   category: "Bomb",
-  image: image1,
-  otherImages: [image2],
+  image: p42,
+  otherImages: [],
   originalPrice: 550,
   discountedPrice: 55,
   discountPercent: 90
@@ -443,8 +480,8 @@ const products = [
   id: "p43",
   name: "Paper Bomb ( Adiyal ) 1/2 Kg",
   category: "Bomb",
-  image: image1,
-  otherImages: [image2],
+  image: p43,
+  otherImages: [],
   originalPrice: 1100,
   discountedPrice: 110,
   discountPercent: 90
@@ -453,8 +490,8 @@ const products = [
   id: "p44",
   name: "Paper Bomb ( Adiyal ) 1 Kg",
   category: "Bomb",
-  image: image1,
-  otherImages: [image2],
+  image: p44,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
