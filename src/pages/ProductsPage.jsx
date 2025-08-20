@@ -89,26 +89,28 @@ const ProductsPage = () => {
         </select>
       </div>
 
-      {/* ✅ Horizontal Combos Section */}
-      <div className="mb-6">
-        <h2 className="text-xl font-bold mb-3">Popular Combos</h2>
-        <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-          {combosWithProducts.map((combo) => (
-            <div className="min-w-[220px]" key={combo.comboId}>
-              <ComboCard combo={combo} />
-            </div>
-          ))}
+      {/* ✅ Show Combos only when "All" is selected */}
+      {selectedCategory === "All" && (
+        <div className="mb-6">
+          <h2 className="text-xl font-bold mb-3">Popular Combos</h2>
+          <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            {combosWithProducts.map((combo) => (
+              <div className="w-[220px] flex-shrink-0" key={combo.comboId}>
+                <ComboCard combo={combo} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* All view */}
       {selectedCategory === "All" ? (
         groupedByCategory.map((group) => (
-          <div key={group.category} className="mb-8 pl-4">
+          <div key={group.category} className="mb-8">
             <h2 className="text-xl font-bold mb-3">{group.category}</h2>
-            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex gap-12 overflow-x-auto pb-2 scrollbar-hide">
               {group.products.map((product) => (
-                <div className="min-w-[200px] pl-4" key={product.id}>
+                <div className="w-[220px] flex-shrink-0" key={product.id}>
                   <ProductCard product={product} />
                 </div>
               ))}
@@ -116,7 +118,7 @@ const ProductsPage = () => {
           </div>
         ))
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 gap-5">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />

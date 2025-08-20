@@ -37,6 +37,31 @@ import p41 from './assets/products/p41.jpg'
 import p42 from './assets/products/p42.jpg'
 import p43 from './assets/products/p43.jpg'
 import p44 from './assets/products/p44.jpg'
+import p45 from './assets/products/p45.jpg'
+import p46 from './assets/products/p46.jpg'
+import p60 from './assets/products/p60.jpg'
+import p61 from './assets/products/p61.jpg'
+import p62 from './assets/products/p62.jpg'
+import p63 from './assets/products/p63.jpg'
+import p64 from './assets/products/p64.jpg'
+import p65 from './assets/products/p65.jpg'
+import p66 from './assets/products/p66.jpg'
+import p67 from './assets/products/p67.jpg'
+import p104 from './assets/products/p104.jpg'
+import p105 from './assets/products/p105.jpg'
+import p106 from './assets/products/p106.jpg'
+import p107 from './assets/products/p107.jpg'
+import p108 from './assets/products/p108.jpg'
+import p109 from './assets/products/p109.jpg'
+import p110 from './assets/products/p110.jpg'
+import p111 from './assets/products/p111.jpg'
+import p112 from './assets/products/p112.jpg'
+import p113 from './assets/products/p113.jpg'
+import p114 from './assets/products/p114.jpg'
+import p115 from './assets/products/p115.jpg'
+import p116 from './assets/products/p116.jpg'
+import p117 from './assets/products/p117.jpg'
+import p118 from './assets/products/p117.jpg'
 
 
 const products = [
@@ -502,8 +527,8 @@ const products = [
   id: "p45",
   name: "Red Bijili (50's)",
   category: "Bijili Crackers",
-  image: image1,
-  otherImages: [image2],
+  image:p45,
+  otherImages: [],
   originalPrice: 165,
   discountedPrice: 17,
   discountPercent: 90
@@ -512,8 +537,8 @@ const products = [
   id: "p46",
   name: "Red Bijili (100's)",
   category: "Bijili Crackers",
-  image: image1,
-  otherImages: [image2],
+  image: p46,
+  otherImages: [],
   originalPrice: 275,
   discountedPrice: 28,
   discountPercent: 90
@@ -658,8 +683,8 @@ const products = [
   id: "p60",
   name: "12 Shot (Green & Crackling)",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p60,
+  otherImages: [],
   originalPrice: 1650,
   discountedPrice: 165,
   discountPercent: 90
@@ -668,8 +693,8 @@ const products = [
   id: "p61",
   name: "25 Shot (Green & Crackling)",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p61,
+  otherImages: [],
   originalPrice: 3080,
   discountedPrice: 308,
   discountPercent: 90
@@ -678,8 +703,8 @@ const products = [
   id: "p62",
   name: "15 Shot (Multi Color)",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p62,
+  otherImages: [],
   originalPrice: 2310,
   discountedPrice: 231,
   discountPercent: 90
@@ -688,8 +713,8 @@ const products = [
   id: "p63",
   name: "30 Shot (Multi Color)",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p63,
+  otherImages: [],
   originalPrice: 4400,
   discountedPrice: 440,
   discountPercent: 90
@@ -698,8 +723,8 @@ const products = [
   id: "p64",
   name: "60 Shot (Multi Color)",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p64,
+  otherImages: [],
   originalPrice: 8250,
   discountedPrice: 825,
   discountPercent: 90
@@ -708,8 +733,8 @@ const products = [
   id: "p65",
   name: "120 Shot (Multi Color)",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p65,
+  otherImages: [],
   originalPrice: 16500,
   discountedPrice: 1650,
   discountPercent: 90
@@ -718,8 +743,8 @@ const products = [
   id: "p66",
   name: "240 Shot (Multi Color)",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p66,
+  otherImages: [],
   originalPrice: 29700,
   discountedPrice: 2970,
   discountPercent: 90
@@ -728,8 +753,8 @@ const products = [
   id: "p67",
   name: "5 * 5 (25 Shot) Different Crackling Shot",
   category: "Repeat Shots",
-  image: image1,
-  otherImages: [image2],
+  image: p67,
+  otherImages: [],
   originalPrice: 33000,
   discountedPrice: 3300,
   discountPercent: 90
@@ -1120,8 +1145,8 @@ const products = [
   id: "p104",
   name: "7 CM Electric Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p104,
+  otherImages: [ ],
   originalPrice: 99,
   discountedPrice: 10,
   discountPercent: 90
@@ -1130,8 +1155,8 @@ const products = [
   id: "p105",
   name: "7 CM Crackling Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p105,
+  otherImages: [],
   originalPrice: 110,
   discountedPrice: 11,
   discountPercent: 90
@@ -1140,8 +1165,8 @@ const products = [
   id: "p106",
   name: "7 CM Green Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p106,
+  otherImages: [],
   originalPrice: 121,
   discountedPrice: 12,
   discountPercent: 90
@@ -1150,8 +1175,8 @@ const products = [
   id: "p107",
   name: "10 CM Electric Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p107,
+  otherImages: [],
   originalPrice: 176,
   discountedPrice: 18,
   discountPercent: 90
@@ -1160,8 +1185,8 @@ const products = [
   id: "p108",
   name: "10 CM Crackling Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p108,
+  otherImages: [],
   originalPrice: 198,
   discountedPrice: 20,
   discountPercent: 90
@@ -1170,8 +1195,8 @@ const products = [
   id: "p109",
   name: "10 CM Green Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p109,
+  otherImages: [],
   originalPrice: 220,
   discountedPrice: 22,
   discountPercent: 90
@@ -1180,8 +1205,8 @@ const products = [
   id: "p110",
   name: "15 CM Electric Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p110,
+  otherImages: [],
   originalPrice: 440,
   discountedPrice: 44,
   discountPercent: 90
@@ -1190,8 +1215,8 @@ const products = [
   id: "p111",
   name: "15 CM Crackling Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p111,
+  otherImages: [],
   originalPrice: 462,
   discountedPrice: 46,
   discountPercent: 90
@@ -1200,8 +1225,8 @@ const products = [
   id: "p112",
   name: "15 CM Green Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p112,
+  otherImages: [],
   originalPrice: 495,
   discountedPrice: 50,
   discountPercent: 90
@@ -1210,8 +1235,8 @@ const products = [
   id: "p113",
   name: "30 CM Electric Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image:p113,
+  otherImages: [],
   originalPrice: 440,
   discountedPrice: 44,
   discountPercent: 90
@@ -1220,8 +1245,8 @@ const products = [
   id: "p114",
   name: "30 CM Crackling Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p114,
+  otherImages: [],
   originalPrice: 462,
   discountedPrice: 46,
   discountPercent: 90
@@ -1230,8 +1255,8 @@ const products = [
   id: "p115",
   name: "30 CM Green Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p115,
+  otherImages: [],
   originalPrice: 495,
   discountedPrice: 50,
   discountPercent: 90
@@ -1240,8 +1265,8 @@ const products = [
   id: "p116",
   name: "50 CM Electric Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p116,
+  otherImages: [],
   originalPrice: 1430,
   discountedPrice: 143,
   discountPercent: 90
@@ -1250,8 +1275,8 @@ const products = [
   id: "p117",
   name: "50 CM Crackling Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p117,
+  otherImages: [],
   originalPrice: 1650,
   discountedPrice: 165,
   discountPercent: 90
@@ -1260,8 +1285,8 @@ const products = [
   id: "p118",
   name: "Spring Sparklers",
   category: "Sparklers",
-  image: image1,
-  otherImages: [image2],
+  image: p118,
+  otherImages: [],
   originalPrice: 1980,
   discountedPrice: 198,
   discountPercent: 90

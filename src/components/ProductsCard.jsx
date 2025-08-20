@@ -5,24 +5,24 @@ import { useAuth } from "../context/AuthContext"; // ✅ Import Auth context
 
 const ProductCard = ({ product }) => {
   const { addToCart, cart } = useCart();
-  const { user } = useAuth(); // ✅ Get logged in user
+  const { user } = useAuth();
   const isInCart = cart.some((item) => item.id === product.id);
 
   // Check if admin (replace with your actual admin UID or role logic)
   const isAdmin = user && user.email === "ram123@gmail.co";
 
   return (
-    <div className="bg-white shadow-sm rounded-lg overflow-hidden hover:shadow-md transition">
-      <Link to={`/product/${product.id}`}>
+    <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-md transition w-64 min-h-[350px] flex flex-col">
+      <Link to={`/product/${product.id}`} className="block">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full p-2 object-cover sm:h-60"
+          className="w-full h-40 object-cover" // ✅ fixed image height
         />
       </Link>
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-grow">
         <div className="flex justify-between items-center">
-          <h3 className="font-medium text-base">{product.name}</h3>
+          <h3 className="font-medium text-base line-clamp-1">{product.name}</h3>
           {isAdmin && (
             <span className="text-xs text-gray-500">ID: {product.id}</span>
           )}
@@ -41,6 +41,9 @@ const ProductCard = ({ product }) => {
             ({product.discountPercent}% OFF)
           </span>
         </div>
+
+        {/* Spacer pushes button to bottom */}
+        <div className="flex-grow" />
 
         <button
           onClick={() => addToCart(product)}
