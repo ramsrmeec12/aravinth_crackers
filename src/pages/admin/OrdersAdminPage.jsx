@@ -26,6 +26,7 @@ export default function OrdersAdminPage() {
   const [statusFilter, setStatusFilter] = useState("All");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [openOrders, setOpenOrders] = useState({}); // track open/close state
 
   useEffect(() => {
     const ordersRef = collection(db, "orders");
@@ -94,13 +95,22 @@ export default function OrdersAdminPage() {
   }));
 
   const handleStatusChange = async (orderId, newStatus) => {
+    const order = orders.find((o) => o.id === orderId);
+    if (!order) return;
+
     let updateData = { status: newStatus };
 
     if (newStatus === "Shipped") {
       const courierName = prompt("Enter Courier Name:");
       const trackingId = prompt("Enter Tracking ID:");
-      updateData.courierName = courierName;
-      updateData.trackingId = trackingId;
+      updateData.courierName = courierName || "";
+      updateData.trackingId = trackingId || "";
+    }
+
+    if (newStatus === "Delivered") {
+      // ✅ Keep existing courier/tracking, do not prompt again
+      updateData.courierName = order.courierName || "";
+      updateData.trackingId = order.trackingId || "";
     }
 
     try {
@@ -108,6 +118,13 @@ export default function OrdersAdminPage() {
     } catch (err) {
       console.error("Error updating status:", err);
     }
+  };
+
+  const toggleOrder = (orderId) => {
+    setOpenOrders((prev) => ({
+      ...prev,
+      [orderId]: !prev[orderId],
+    }));
   };
 
   return (
@@ -168,77 +185,97 @@ export default function OrdersAdminPage() {
               0
             );
 
-            return (
-              <div
-                key={order.id}
-                className="border p-4 rounded shadow bg-white space-y-2"
-              >
-                <div className="flex justify-between items-center">
-                  <p className="font-semibold">Order ID: {order.id}</p>
-                  <select
-                    value={order.status || "Pending"}
-                    onChange={(e) =>
-                      handleStatusChange(order.id, e.target.value)
-                    }
-                    className="border rounded p-1"
-                  >
-                    {STATUS_OPTIONS.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <p>
-                  <strong>Name:</strong> {order.name}
-                </p>
-                <p>
-                  <strong>Email:</strong> {order.email || "—"}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {order.phone}
-                </p>
-                <p>
-                  <strong>Address:</strong> {order.address}
-                </p>
-                <p>
-                  <strong>Pincode:</strong> {order.pincode || "—"}
-                </p>
+            const isOpen = openOrders[order.id] || false;
 
-                {order.status === "Shipped" && (
-                  <div className="bg-purple-50 p-2 rounded">
+            return (
+              <div key={order.id} className="border rounded shadow bg-white">
+                {/* Header row */}
+                <div
+                  className="flex justify-between items-center p-4 cursor-pointer bg-gray-50"
+                  onClick={() => toggleOrder(order.id)}
+                >
+                  <p className="font-semibold">Order ID: {order.id}</p>
+                  <div className="flex items-center gap-3">
+                    <select
+                      value={order.status || "Pending"}
+                      onChange={(e) =>
+                        handleStatusChange(order.id, e.target.value)
+                      }
+                      className="border rounded p-1"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {STATUS_OPTIONS.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                    <span className="text-blue-600">
+                      {isOpen ? "▲" : "▼"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Details (collapsed/expanded) */}
+                {isOpen && (
+                  <div className="p-4 space-y-2 border-t">
                     <p>
-                      <strong>Courier:</strong> {order.courierName || "—"}
+                      <strong>Name:</strong> {order.name}
                     </p>
                     <p>
-                      <strong>Tracking ID:</strong> {order.trackingId || "—"}
+                      <strong>Email:</strong> {order.email || "—"}
                     </p>
+                    <p>
+                      <strong>Phone:</strong> {order.phone}
+                    </p>
+                    <p>
+                      <strong>Address:</strong> {order.address}
+                    </p>
+                    <p>
+                      <strong>Pincode:</strong> {order.pincode || "—"}
+                    </p>
+
+                    {(order.status === "Shipped" ||
+                      order.status === "Delivered") && (
+                      <div className="bg-purple-50 p-2 rounded">
+                        <p>
+                          <strong>Courier:</strong>{" "}
+                          {order.courierName || "—"}
+                        </p>
+                        <p>
+                          <strong>Tracking ID:</strong>{" "}
+                          {order.trackingId || "—"}
+                        </p>
+                      </div>
+                    )}
+
+                    <p className="text-gray-500 text-sm">
+                      {order.createdAt?.toDate
+                        ? order.createdAt.toDate().toLocaleString()
+                        : ""}
+                    </p>
+                    <ul className="list-disc ml-5">
+                      {(order.items || []).map((item) => (
+                        <li key={item.id}>
+                          {item.name} × {item.qty} × ({item.id})
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-2 font-semibold text-right">
+                      Total: ₹{total.toLocaleString()}
+                    </p>
+                    <InvoiceGenerator
+                      order={order}
+                      shopInfo={{
+                        name: "Aravinth Crackers Store",
+                        address:
+                          "123 Main Street, Chennai, India - 600001",
+                        contact:
+                          "Phone: +91 9876543210 | Email: info@aravinthcrackers.com",
+                      }}
+                    />
                   </div>
                 )}
-
-                <p className="text-gray-500 text-sm">
-                  {order.createdAt?.toDate
-                    ? order.createdAt.toDate().toLocaleString()
-                    : ""}
-                </p>
-                <ul className="list-disc ml-5">
-                  {(order.items || []).map((item) => (
-                    <li key={item.id}>
-                      {item.name} × {item.qty} × ({item.id})
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-2 font-semibold text-right">
-                  Total: ₹{total.toLocaleString()}
-                </p>
-                <InvoiceGenerator
-                  order={order}
-                  shopInfo={{
-                    name: "Aravinth Crackers Store",
-                    address: "123 Main Street, Chennai, India - 600001",
-                    contact: "Phone: +91 9876543210 | Email: info@aravinthcrackers.com",
-                  }}
-                />
               </div>
             );
           })
