@@ -17,8 +17,9 @@ const ProductCard = ({ product }) => {
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-56 object-cover" // ✅ fixed image height
+          className="w-full h-56 object-contain bg-white"
         />
+
       </Link>
       <div className="p-4 flex flex-col flex-grow">
         <div className="flex justify-between items-center">
@@ -47,11 +48,10 @@ const ProductCard = ({ product }) => {
 
         <button
           onClick={() => addToCart(product)}
-          className={`mt-3 px-4 py-2 text-white rounded-lg text-sm ${
-            isInCart
+          className={`mt-3 px-4 py-2 text-white rounded-lg text-sm ${isInCart
               ? "bg-green-500 hover:bg-green-600"
               : "bg-yellow-500 hover:bg-yellow-600"
-          }`}
+            }`}
         >
           {isInCart ? "Added to Cart" : "Add to Cart"}
         </button>
