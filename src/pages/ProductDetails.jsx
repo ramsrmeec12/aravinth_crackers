@@ -25,7 +25,7 @@ const ProductDetails = () => {
           <img
             src={allImages[currentIndex]}
             alt={product.name}
-            className="w-full h-80 object-cover rounded-lg transition duration-300 ease-in-out"
+            className="w-full h-120 object-cover rounded-lg transition duration-300 ease-in-out"
           />
 
           {/* Thumbnails */}

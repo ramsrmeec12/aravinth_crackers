@@ -62,6 +62,11 @@ import p115 from './assets/products/p115.jpg'
 import p116 from './assets/products/p116.jpg'
 import p117 from './assets/products/p117.jpg'
 import p118 from './assets/products/p117.jpg'
+import p119 from './assets/products/p119.jpg'
+import p120 from './assets/products/p120.jpg'
+import p121 from './assets/products/p121.jpg'
+import p122 from './assets/products/p122.jpg'
+import p123 from './assets/products/p123.jpg'
 
 
 const products = [
@@ -1297,8 +1302,8 @@ const products = [
   id: "p119",
   name: "21 Items",
   category: "Gift Boxed",
-  image: image1,
-  otherImages: [image2],
+  image: p119,
+  otherImages: [],
   originalPrice: 350,
   discountedPrice: 350,
   discountPercent: 90
@@ -1307,8 +1312,8 @@ const products = [
   id: "p120",
   name: "27 Items",
   category: "Gift Boxed",
-  image: image1,
-  otherImages: [image2],
+  image: p120,
+  otherImages: [],
   originalPrice: 500,
   discountedPrice: 500,
   discountPercent: 90
@@ -1317,8 +1322,8 @@ const products = [
   id: "p121",
   name: "33 Items",
   category: "Gift Boxed",
-  image: image1,
-  otherImages: [image2],
+  image: p121,
+  otherImages: [p121],
   originalPrice: 600,
   discountedPrice: 600,
   discountPercent: 90
@@ -1327,8 +1332,8 @@ const products = [
   id: "p122",
   name: "40 Items",
   category: "Gift Boxed",
-  image: image1,
-  otherImages: [image2],
+  image: p122,
+  otherImages: [],
   originalPrice: 900,
   discountedPrice: 900,
   discountPercent: 90
@@ -1337,8 +1342,8 @@ const products = [
   id: "p123",
   name: "50 Items",
   category: "Gift Boxed",
-  image: image1,
-  otherImages: [image2],
+  image: p123,
+  otherImages: [],
   originalPrice: 1300,
   discountedPrice: 1300,
   discountPercent: 90
@@ -1347,8 +1352,8 @@ const products = [
   id: "p124",
   name: "60 Items",
   category: "Gift Boxed",
-  image: image1,
-  otherImages: [image2],
+  image: p123,
+  otherImages: [],
   originalPrice: 1800,
   discountedPrice: 1800,
   discountPercent: 90
