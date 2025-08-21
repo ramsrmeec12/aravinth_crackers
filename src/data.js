@@ -67,6 +67,26 @@ import p120 from './assets/products/p120.jpg'
 import p121 from './assets/products/p121.jpg'
 import p122 from './assets/products/p122.jpg'
 import p123 from './assets/products/p123.jpg'
+import p29 from './assets/products/p29.jpg'
+import p33 from './assets/products/p33.webp'
+import p34 from './assets/products/p34.png'
+import p35 from './assets/products/p35.jpg'
+import p37 from './assets/products/p37.jpg'
+import p47 from './assets/products/p47.jpeg'
+import p51 from './assets/products/p51.webp'
+import p52 from './assets/products/p52.jpg'
+import p53 from './assets/products/p53.jpeg'
+import p54 from './assets/products/p54.jpg'
+import p55 from './assets/products/p55.webp'
+import p56 from './assets/products/p56.webp'
+import p57 from './assets/products/p54.jpg'
+import p58 from './assets/products/p55.webp'
+import p59 from './assets/products/p59.jpeg'
+import p78 from './assets/products/p78.jpg'
+import p79 from './assets/products/p79.jpg'
+import p80 from './assets/products/p80.jpg'
+
+
 
 
 const products = [
@@ -363,8 +383,8 @@ const products = [
   id: "p29",
   name: "Color Smoke",
   category: "Twinkling Star",
-  image: image1,
-  otherImages: [image2],
+  image: p29,
+  otherImages: [],
   originalPrice: 1100,
   discountedPrice: 110,
   discountPercent: 90
@@ -408,8 +428,8 @@ const products = [
   id: "p33",
   name: "Kit Kat",
   category: "Kids Special",
-  image: image1,
-  otherImages: [image2],
+  image: p33,
+  otherImages: [],
   originalPrice: 220,
   discountedPrice: 22,
   discountPercent: 90
@@ -418,8 +438,8 @@ const products = [
   id: "p34",
   name: "Chittu Puttu",
   category: "Kids Special",
-  image: image1,
-  otherImages: [image2],
+  image: p34,
+  otherImages: [],
   originalPrice: 330,
   discountedPrice: 33,
   discountPercent: 90
@@ -428,8 +448,8 @@ const products = [
   id: "p35",
   name: "Asrafi Popes Mix",
   category: "Kids Special",
-  image: image1,
-  otherImages: [image2],
+  image: p35,
+  otherImages: [p35],
   originalPrice: 660,
   discountedPrice: 66,
   discountPercent: 90
@@ -448,8 +468,8 @@ const products = [
   id: "p37",
   name: "Bambara (5 Pcs)",
   category: "Kids Special",
-  image: image1,
-  otherImages: [image2],
+  image: p37,
+  otherImages: [p37],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -554,8 +574,8 @@ const products = [
   id: "p47",
   name: "Face Book",
   category: "Festival Crackers",
-  image: image1,
-  otherImages: [image2],
+  image: p47,
+  otherImages: [],
   originalPrice: 3080,
   discountedPrice: 308,
   discountPercent: 90
@@ -596,8 +616,8 @@ const products = [
   id: "p51",
   name: "7 Shot (5 Pce)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p51,
+  otherImages: [p51],
   originalPrice: 1430,
   discountedPrice: 143,
   discountPercent: 90
@@ -606,8 +626,8 @@ const products = [
   id: "p52",
   name: "1' Chotta Fancy (Single)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p52,
+  otherImages: [],
   originalPrice: 440,
   discountedPrice: 44,
   discountPercent: 90
@@ -616,8 +636,8 @@ const products = [
   id: "p53",
   name: "2 1/2' Fancy (Single)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p53,
+  otherImages: [],
   originalPrice: 1375,
   discountedPrice: 138,
   discountPercent: 90
@@ -626,8 +646,8 @@ const products = [
   id: "p54",
   name: "3 1/2 1\" Fancy (Single)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p54,
+  otherImages: [],
   originalPrice: 2475,
   discountedPrice: 248,
   discountPercent: 90
@@ -636,8 +656,8 @@ const products = [
   id: "p55",
   name: "4\" Fancy (Single)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p55,
+  otherImages: [],
   originalPrice: 3300,
   discountedPrice: 330,
   discountPercent: 90
@@ -646,8 +666,8 @@ const products = [
   id: "p56",
   name: "2\" Fancy Rock Star (3 Pcs)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p56,
+  otherImages: [],
   originalPrice: 2475,
   discountedPrice: 248,
   discountPercent: 90
@@ -656,8 +676,8 @@ const products = [
   id: "p57",
   name: "3 1/2 Fancy (2 Pcs)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p57,
+  otherImages: [],
   originalPrice: 4950,
   discountedPrice: 495,
   discountPercent: 90
@@ -666,8 +686,8 @@ const products = [
   id: "p58",
   name: "4\" Fancy (2 Pcs)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p58,
+  otherImages: [],
   originalPrice: 6600,
   discountedPrice: 660,
   discountPercent: 90
@@ -676,8 +696,8 @@ const products = [
   id: "p59",
   name: "5\" Fancy (2 Pcs)",
   category: "Mini Fancy Items",
-  image: image1,
-  otherImages: [image2],
+  image: p59,
+  otherImages: [],
   originalPrice: 7700,
   discountedPrice: 770,
   discountPercent: 90
@@ -873,8 +893,8 @@ const products = [
   id: "p78",
   name: "Dancing Peacock",
   category: "Peacock Cracker",
-  image: image1,
-  otherImages: [image2],
+  image: p78,
+  otherImages: [],
   originalPrice: 1650,
   discountedPrice: 165,
   discountPercent: 90
@@ -883,8 +903,8 @@ const products = [
   id: "p79",
   name: "Magic Peacock",
   category: "Peacock Cracker",
-  image: image1,
-  otherImages: [image2],
+  image: p79,
+  otherImages: [],
   originalPrice: 1650,
   discountedPrice: 165,
   discountPercent: 90
@@ -893,8 +913,8 @@ const products = [
   id: "p80",
   name: "Mega & Bada Peacock",
   category: "Peacock Cracker",
-  image: image1,
-  otherImages: [image2],
+  image: p80,
+  otherImages: [],
   originalPrice: 3740,
   discountedPrice: 374,
   discountPercent: 90
