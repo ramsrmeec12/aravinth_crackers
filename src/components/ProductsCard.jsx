@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
   const isAdmin = user && user.email === "ram123@gmail.co";
 
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-md transition w-52 sm:w-64 min-h-[350px] flex flex-col">
+    <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-md transition  w-40 sm:w-64 min-h-[350px] flex flex-col">
       <Link to={`/product/${product.id}`} className="block">
         <img
           src={product.image}
