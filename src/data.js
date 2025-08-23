@@ -72,7 +72,7 @@ import p33 from './assets/products/p33.webp'
 import p34 from './assets/products/p34.png'
 import p35 from './assets/products/p35.jpg'
 import p37 from './assets/products/p37.jpg'
-import p47 from './assets/products/p47.jpeg'
+import p47 from './assets/products/p47.webp'
 import p51 from './assets/products/p51.webp'
 import p52 from './assets/products/p52.jpg'
 import p53 from './assets/products/p53.jpeg'
@@ -85,6 +85,47 @@ import p59 from './assets/products/p59.jpeg'
 import p78 from './assets/products/p78.jpg'
 import p79 from './assets/products/p79.jpg'
 import p80 from './assets/products/p80.jpg'
+
+import p16 from './assets/products/p16.jpg'
+import p14 from './assets/products/p14.jpg'
+import p15 from './assets/products/p15.jpg'
+import p36 from './assets/products/p36.jpg'
+import p38 from './assets/products/p38.jpg'
+import p68 from './assets/products/p68.jpg'
+import p69 from './assets/products/p69.jpg'
+import p70 from './assets/products/p70.jpg'
+import p71 from './assets/products/p71.jpg'
+import p72 from './assets/products/p72.jpg'
+import p75 from './assets/products/p75.jpg'
+import p74 from './assets/products/p74.jpg'
+import p84 from './assets/products/p84.jpg'
+import p85a from './assets/products/p85a.jpg'
+import p83 from './assets/products/p83.jpg'
+import p86 from './assets/products/p86.jpg'
+import p89 from './assets/products/p89.jpg'
+import p87 from './assets/products/p87.jpg'
+import p92 from './assets/products/p92.jpg'
+import p93 from './assets/products/p93.jpg'
+import p100 from './assets/products/p100.jpg'
+import p101 from './assets/products/p101.jpg'
+import p99 from './assets/products/p99.jpg'
+import p85 from './assets/products/p85.jpg'
+import p48 from './assets/products/p48.webp'
+import p49 from './assets/products/p49.webp'
+import p50 from './assets/products/p50.webp'
+
+import p76 from './assets/products/p76.webp'
+import p77 from './assets/products/p77.jpg'
+import p81 from './assets/products/p81.webp'
+import p88 from './assets/products/p88.jpeg'
+import p90 from './assets/products/p90.webp'
+import p91 from './assets/products/p91.jpg'
+import p94 from './assets/products/p94.webp'
+import p96 from './assets/products/p96.png'
+import p97 from './assets/products/p97.jpg'
+import p98 from './assets/products/p98.jpg'
+import p102 from './assets/products/p102.webp'
+import p103 from './assets/products/p103.webp'
 
 
 
@@ -228,8 +269,8 @@ const products = [
   id: "p14",
   name: "Wire Chakkaram (UV Box)",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image:p14,
+  otherImages: [],
   originalPrice: 1760,
   discountedPrice: 176,
   discountPercent: 90
@@ -238,8 +279,8 @@ const products = [
   id: "p15",
   name: "Wishling Dixie (UV Box)",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p15,
+  otherImages: [p15],
   originalPrice: 990,
   discountedPrice: 99,
   discountPercent: 90
@@ -248,8 +289,8 @@ const products = [
   id: "p16",
   name: "Lotus Wheel",
   category: "Ground Chakkars",
-  image: image1,
-  otherImages: [image2],
+  image: p16,
+  otherImages: [],
   originalPrice: 1100,
   discountedPrice: 110,
   discountPercent: 90
@@ -458,8 +499,8 @@ const products = [
   id: "p36",
   name: "Red Flash (5 Pcs)",
   category: "Kids Special",
-  image: image1,
-  otherImages: [image2],
+  image: p36,
+  otherImages: [],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -478,8 +519,8 @@ const products = [
   id: "p38",
   name: "Drone Camera (5 Pcs)",
   category: "Kids Special",
-  image: image1,
-  otherImages: [image2],
+  image: p38,
+  otherImages: [],
   originalPrice: 1540,
   discountedPrice: 154,
   discountPercent: 90
@@ -584,8 +625,8 @@ const products = [
   id: "p48",
   name: "Wats App",
   category: "Festival Crackers",
-  image: image1,
-  otherImages: [image2],
+  image: p48,
+  otherImages: [],
   originalPrice: 6050,
   discountedPrice: 605,
   discountPercent: 90
@@ -594,8 +635,8 @@ const products = [
   id: "p49",
   name: "You Tube",
   category: "Festival Crackers",
-  image: image1,
-  otherImages: [image2],
+  image: p49,
+  otherImages: [],
   originalPrice: 15400,
   discountedPrice: 1540,
   discountPercent: 90
@@ -604,8 +645,8 @@ const products = [
   id: "p50",
   name: "Instagram",
   category: "Festival Crackers",
-  image: image1,
-  otherImages: [image2],
+  image: p50,
+  otherImages: [],
   originalPrice: 28600,
   discountedPrice: 2860,
   discountPercent: 90
@@ -791,8 +832,8 @@ const products = [
   id: "p68",
   name: "Color Rain (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p68,
+  otherImages: [],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -801,8 +842,8 @@ const products = [
   id: "p69",
   name: "Peacock Feather (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p69,
+  otherImages: [],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -811,8 +852,8 @@ const products = [
   id: "p70",
   name: "Golden Globe (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p70,
+  otherImages: [],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -821,8 +862,8 @@ const products = [
   id: "p71",
   name: "Twix (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p71,
+  otherImages: [],
   originalPrice: 1320,
   discountedPrice: 132,
   discountPercent: 90
@@ -831,8 +872,8 @@ const products = [
   id: "p72",
   name: "Nano (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p72,
+  otherImages: [],
   originalPrice: 495,
   discountedPrice: 50,
   discountPercent: 90
@@ -851,8 +892,8 @@ const products = [
   id: "p74",
   name: "Spirite / Coco Cola Fountain",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p74,
+  otherImages: [],
   originalPrice: 1760,
   discountedPrice: 176,
   discountPercent: 90
@@ -861,8 +902,8 @@ const products = [
   id: "p75",
   name: "Tri Color (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p75,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -871,8 +912,8 @@ const products = [
   id: "p76",
   name: "Whistle Mini Siren (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p76,
+  otherImages: [],
   originalPrice: 1320,
   discountedPrice: 132,
   discountPercent: 90
@@ -881,8 +922,8 @@ const products = [
   id: "p77",
   name: "Mega Siren (3 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p77,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -925,8 +966,8 @@ const products = [
   id: "p81",
   name: "Koko (5 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p81,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -945,8 +986,8 @@ const products = [
   id: "p83",
   name: "Fox Star",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p83,
+  otherImages: [],
   originalPrice: 1210,
   discountedPrice: 121,
   discountPercent: 90
@@ -955,8 +996,8 @@ const products = [
   id: "p84",
   name: "Sing Pop",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p84,
+  otherImages: [],
   originalPrice: 1540,
   discountedPrice: 154,
   discountPercent: 90
@@ -965,8 +1006,8 @@ const products = [
   id: "p85",
   name: "H 2 O",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p85,
+  otherImages: [],
   originalPrice: 1320,
   discountedPrice: 132,
   discountPercent: 90
@@ -975,8 +1016,8 @@ const products = [
   id: "p85a",
   name: "6\" Water Queen",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p85a,
+  otherImages: [],
   originalPrice: 1760,
   discountedPrice: 176,
   discountPercent: 90
@@ -985,8 +1026,8 @@ const products = [
   id: "p86",
   name: "Autumn Rain",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p86,
+  otherImages: [],
   originalPrice: 1320,
   discountedPrice: 132,
   discountPercent: 90
@@ -995,8 +1036,8 @@ const products = [
   id: "p87",
   name: "Fire Egg (2 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p87,
+  otherImages: [],
   originalPrice: 1430,
   discountedPrice: 143,
   discountPercent: 90
@@ -1005,8 +1046,8 @@ const products = [
   id: "p88",
   name: "Tin Fountain (3 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p88,
+  otherImages: [],
   originalPrice: 880,
   discountedPrice: 88,
   discountPercent: 90
@@ -1015,8 +1056,8 @@ const products = [
   id: "p89",
   name: "Crackling Fountain",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p89,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -1025,8 +1066,8 @@ const products = [
   id: "p90",
   name: "Selfie Stick (3 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p90,
+  otherImages: [],
   originalPrice: 1320,
   discountedPrice: 132,
   discountPercent: 90
@@ -1035,8 +1076,8 @@ const products = [
   id: "p91",
   name: "Money in Small Bank (3 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p91,
+  otherImages: [],
   originalPrice: 1540,
   discountedPrice: 154,
   discountPercent: 90
@@ -1045,8 +1086,8 @@ const products = [
   id: "p92",
   name: "Money Bank Big",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p92,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -1055,8 +1096,8 @@ const products = [
   id: "p93",
   name: "Lolli Pop (5 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p93,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -1065,8 +1106,8 @@ const products = [
   id: "p94",
   name: "Old Gold (25 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p94,
+  otherImages: [],
   originalPrice: 1540,
   discountedPrice: 154,
   discountPercent: 90
@@ -1085,8 +1126,8 @@ const products = [
   id: "p96",
   name: "90 Wats (100 Wala)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p96,
+  otherImages: [],
   originalPrice: 1320,
   discountedPrice: 132,
   discountPercent: 90
@@ -1095,8 +1136,8 @@ const products = [
   id: "p97",
   name: "Magic Whip",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p97,
+  otherImages: [],
   originalPrice: 1760,
   discountedPrice: 176,
   discountPercent: 90
@@ -1105,8 +1146,8 @@ const products = [
   id: "p98",
   name: "4 x 4 Wheel (5 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p98,
+  otherImages: [],
   originalPrice: 1650,
   discountedPrice: 165,
   discountPercent: 90
@@ -1117,7 +1158,7 @@ const products = [
   id: "p99",
   name: "Annam (10 in One)",
   category: "Match Box",
-  image: image1,
+  image: p99,
   otherImages: [image2],
   originalPrice: 935,
   discountedPrice: 94,
@@ -1127,8 +1168,8 @@ const products = [
   id: "p100",
   name: "Samrat (10 in One)",
   category: "Match Box",
-  image: image1,
-  otherImages: [image2],
+  image: p100,
+  otherImages: [],
   originalPrice: 1430,
   discountedPrice: 143,
   discountPercent: 90
@@ -1137,8 +1178,8 @@ const products = [
   id: "p101",
   name: "Crown (10 in One)",
   category: "Match Box",
-  image: image1,
-  otherImages: [image2],
+  image: p101,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -1147,8 +1188,8 @@ const products = [
   id: "p102",
   name: "Roll Cap",
   category: "Match Box",
-  image: image1,
-  otherImages: [image2],
+  image: p102,
+  otherImages: [],
   originalPrice: 660,
   discountedPrice: 66,
   discountPercent: 90
@@ -1157,8 +1198,8 @@ const products = [
   id: "p103",
   name: "Snake Tablet",
   category: "Match Box",
-  image: image1,
-  otherImages: [image2],
+  image: p103,
+  otherImages: [],
   originalPrice: 275,
   discountedPrice: 28,
   discountPercent: 90
