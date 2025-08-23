@@ -127,6 +127,11 @@ import p98 from './assets/products/p98.jpg'
 import p102 from './assets/products/p102.webp'
 import p103 from './assets/products/p103.webp'
 
+import p125 from './assets/products/p125.jpg'
+import p126 from './assets/products/p126.png'
+import p128 from './assets/products/p128.jpg'
+import p130 from './assets/products/p130.png'
+import p133 from './assets/products/p133.png'
 
 
 
@@ -1425,8 +1430,8 @@ const products = [
   id: "p125",
   name: "Motu Patlu",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p125,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -1435,8 +1440,8 @@ const products = [
   id: "p126",
   name: "Cricket Bat Fountain",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p126,
+  otherImages: [],
   originalPrice: 3300,
   discountedPrice: 330,
   discountPercent: 90
@@ -1455,8 +1460,8 @@ const products = [
   id: "p128",
   name: "Cylinder Bomb",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p128,
+  otherImages: [],
   originalPrice: 1870,
   discountedPrice: 187,
   discountPercent: 90
@@ -1475,8 +1480,8 @@ const products = [
   id: "p130",
   name: "Fruits Fountain",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p130,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -1505,8 +1510,8 @@ const products = [
   id: "p133",
   name: "Dil Khushi (2 Pcs)",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p133,
+  otherImages: [],
   originalPrice: 1870,
   discountedPrice: 187,
   discountPercent: 90

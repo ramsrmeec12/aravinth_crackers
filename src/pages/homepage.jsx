@@ -1,6 +1,7 @@
 import FeaturedProducts from "../components/Featuredproducts";
 import { useNavigate } from 'react-router-dom';
 import OurProducts from "../components/ourproducts";
+import Advertisement from "../components/Advertisement";
 
 
 export default function DeepavaliDelights() {
@@ -8,9 +9,10 @@ export default function DeepavaliDelights() {
     const navigate = useNavigate();
     return (
         <div className="font-serif bg-[#fdfaf5] text-[#2c2c2c]">
+            <Advertisement ></Advertisement>
 
             {/* Hero Section */}
-            <div className="flex justify-center py-5 px-4 sm:px-8 lg:px-20">
+            <div className="flex justify-center py-5 ">
                 <div className="flex flex-col w-full max-w-[960px]">
                     <div className="p-4">
                         <div
@@ -41,6 +43,7 @@ export default function DeepavaliDelights() {
 
 
             
+
 
             <FeaturedProducts></FeaturedProducts>
             <OurProducts></OurProducts>

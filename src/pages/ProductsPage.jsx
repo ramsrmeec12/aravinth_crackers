@@ -108,7 +108,7 @@ const ProductsPage = () => {
         groupedByCategory.map((group) => (
           <div key={group.category} className="mb-8">
             <h2 className="text-xl font-bold mb-3">{group.category}</h2>
-            <div className="flex gap-1 sm:gap-12 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex sm:gap-12 overflow-x-auto pb-2 scrollbar-hide">
               {group.products.map((product) => (
                 <div className="w-[220px] flex-shrink-0" key={product.id}>
                   <ProductCard product={product} />

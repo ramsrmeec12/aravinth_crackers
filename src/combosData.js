@@ -1,7 +1,7 @@
 // combosData.js
 import productsData from "./data"; // your single products data
-import cover5000 from './assets/ourproducts/Flower-Pots.png'
-import cover2000 from './assets/ourproducts/Flower-Pots.png'
+import cover5000 from './assets/products/p10.jpg'
+import cover2000 from './assets/products/p10.jpg'
 const combos = [
   {
     comboId: "c1",
