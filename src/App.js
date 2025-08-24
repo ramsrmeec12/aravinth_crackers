@@ -15,10 +15,14 @@ import AboutUs from "./components/Aboutus";
 import ContactUs from "./components/Contact";
 import CombosPage from "./pages/CombosPage";
 import ComboDetailsPage from "./pages/ComboDetailsPage";
+import ScrollToTop from "./components/Scrolltotop";
+import { HelmetProvider } from "react-helmet-async";
 
 
 function App() {
-  return (<Router>
+  return (
+  <HelmetProvider><Router>
+    <ScrollToTop></ScrollToTop>
     <Navbar></Navbar>
     <Routes>
       <Route path="/" element={<DeepavaliDelights />} />
@@ -45,7 +49,8 @@ function App() {
       </Route>
     </Routes>
     <Footersec></Footersec>
-  </Router>)
+  </Router>
+  </HelmetProvider>)
 }
 
 export default App;

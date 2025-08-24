@@ -1,15 +1,36 @@
+import { Helmet } from "react-helmet-async";
 import FeaturedProducts from "../components/Featuredproducts";
 import { useNavigate } from 'react-router-dom';
 import OurProducts from "../components/ourproducts";
 import Advertisement from "../components/Advertisement";
 
-
 export default function DeepavaliDelights() {
-
     const navigate = useNavigate();
+
     return (
         <div className="font-serif bg-[#fdfaf5] text-[#2c2c2c]">
-            <Advertisement ></Advertisement>
+            
+            <Helmet>
+                <title>Buy Crackers Online | Aravinth Crackers – Diwali 2025</title>
+                <meta
+                    name="description"
+                    content="Shop Diwali crackers online at Aravinth Crackers – Flower Pots, Ground Chakkars, Rockets, Sparklers & eco-friendly fireworks with safe delivery."
+                />
+                <meta
+                    name="keywords"
+                    content="buy crackers online, Diwali crackers, Aravinth Crackers, sparklers, flower pots, ground chakkars, rockets, eco-friendly crackers"
+                />
+                <meta property="og:title" content="Aravinth Crackers – Buy Crackers Online for Diwali" />
+                <meta
+                    property="og:description"
+                    content="Celebrate Diwali 2025 with Aravinth Crackers – Safe, affordable, eco-friendly crackers. Order online & enjoy fast delivery!"
+                />
+                <meta property="og:image" content="https://aravinthcrackers.in/static/media/logo.69a2386f94a3d96e8836.png" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://aravinthcrackers.in/" />
+            </Helmet>
+
+            <Advertisement />
 
             {/* Hero Section */}
             <div className="flex justify-center py-5 ">
@@ -41,15 +62,8 @@ export default function DeepavaliDelights() {
                 </div>
             </div>
 
-
-            
-
-
-            <FeaturedProducts></FeaturedProducts>
-            <OurProducts></OurProducts>
-
-
-            
+            <FeaturedProducts />
+            <OurProducts />
         </div>
     );
 }

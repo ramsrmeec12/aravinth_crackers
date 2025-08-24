@@ -4,18 +4,18 @@ import React from "react";
 const FeaturedProducts = () => {
   const products = [
     {
-      image: require("../assets/catalogue-full-2021-8--500x500.webp"),
-      name: "Kambi Mathappu",
+      image: require("../assets/products/p125.jpg"),
+      name: "2025 New Varieties",
       description: "Traditional sparklers",
     },
     {
-      image: require("../assets/image.png"),
-      name: "Lakshmi Vedi",
+      image: require("../assets/products/p119.jpg"),
+      name: "Gift Boxed",
       description: "Classic firecrackers",
     },
     {
-      image: require("../assets/image.png"),
-      name: "Flower Pots",
+      image: require("../assets/products/p33.webp"),
+      name: "Kids Special",
       description: "Colorful ground spinners",
     },
   ];
