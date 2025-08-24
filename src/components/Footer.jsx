@@ -39,16 +39,16 @@ const Footersec = () => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2">
-              <FaMapMarkerAlt /> No. 123, Main Bazaar, Sivakasi, Tamil Nadu
+              <FaMapMarkerAlt /> No. 27, Lakshmi Narashiman Nagar, Mettamalai, Sattur, Sivakasi, Tamil Nadu
             </li>
             <li className="flex items-center gap-2">
-              <FaPhoneAlt /> +91 98765 43210
+              <FaPhoneAlt /> +91 97102 47861
             </li>
             <li className="flex items-center gap-2">
-              <FaEnvelope /> info@aravinthcrackers.com
+              <FaEnvelope /> aravinthcrackers@gmail.com
             </li>
             <li className="flex items-center gap-2">
-              <FaWhatsapp /> WhatsApp Orders: +91 98765 43210
+              <FaWhatsapp /> WhatsApp Orders: +91 97102 47861
             </li>
           </ul>
         </div>
@@ -73,9 +73,9 @@ const Footersec = () => {
             Follow Us
           </h3>
           <div className="flex gap-4 text-xl">
-            <a href="#" className="hover:text-yellow-200"><FaFacebook /></a>
-            <a href="#" className="hover:text-yellow-200"><FaInstagram /></a>
-            <a href="#" className="hover:text-yellow-200"><FaWhatsapp /></a>
+            <a href="https://www.facebook.com/share/1EKdu3K849/" className="hover:text-yellow-200"><FaFacebook /></a>
+            <a href="https://www.instagram.com/aravinthcrackers/" className="hover:text-yellow-200"><FaInstagram /></a>
+            <a href="https://wa.me/c/919363605130" className="hover:text-yellow-200"><FaWhatsapp /></a>
           </div>
           <p className="text-sm mt-4">Stay updated with offers & festive deals!</p>
         </div>

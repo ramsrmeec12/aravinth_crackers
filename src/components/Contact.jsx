@@ -53,19 +53,19 @@ const ContactUs = () => {
               <ul className="space-y-4 text-lg text-gray-700">
                 <li className="flex items-center gap-3">
                   <FaMapMarkerAlt className="text-red-500" />
-                  No. 123, Main Bazaar, Sivakasi, Tamil Nadu
+                  No. 27, Lakshmi Narashiman Nagar, Mettamalai, Sattur, Sivakasi, Tamil Nadu
                 </li>
                 <li className="flex items-center gap-3">
                   <FaPhoneAlt className="text-red-500" />
-                  +91 98765 43210
+                  +91 97102 47861
                 </li>
                 <li className="flex items-center gap-3">
                   <FaEnvelope className="text-red-500" />
-                  info@aravinthcrackers.com
+                  aravinthcrackers@gmail.com
                 </li>
                 <li className="flex items-center gap-3">
                   <FaWhatsapp className="text-green-500" />
-                  WhatsApp Orders: +91 98765 43210
+                  WhatsApp Orders: +91 97102 47861
                 </li>
               </ul>
 
