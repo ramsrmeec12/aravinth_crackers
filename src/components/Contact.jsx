@@ -57,7 +57,7 @@ const ContactUs = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <FaPhoneAlt className="text-red-500" />
-                  +91 97102 47861
+                  +91 93636 05130
                 </li>
                 <li className="flex items-center gap-3">
                   <FaEnvelope className="text-red-500" />
@@ -65,7 +65,7 @@ const ContactUs = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <FaWhatsapp className="text-green-500" />
-                  WhatsApp Orders: +91 97102 47861
+                  WhatsApp Orders: +91 93636 05130
                 </li>
               </ul>
 

@@ -42,13 +42,13 @@ const Footersec = () => {
               <FaMapMarkerAlt /> No. 27, Lakshmi Narashiman Nagar, Mettamalai, Sattur, Sivakasi, Tamil Nadu
             </li>
             <li className="flex items-center gap-2">
-              <FaPhoneAlt /> +91 97102 47861
+              <FaPhoneAlt /> +91 93636 05130
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope /> aravinthcrackers@gmail.com
             </li>
             <li className="flex items-center gap-2">
-              <FaWhatsapp /> WhatsApp Orders: +91 97102 47861
+              <FaWhatsapp /> WhatsApp Orders: +91 93636 05130
             </li>
           </ul>
         </div>
