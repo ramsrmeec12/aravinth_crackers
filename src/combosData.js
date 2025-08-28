@@ -1,11 +1,14 @@
 import productsData from "./data"; // your single products data
-import cover5000 from './assets/products/p10.jpg'
+import cover3000 from './assets/combophotos/combo sale 3000.webp'
+import cover5000 from './assets/combophotos/combo sale 5000.webp'
+import cover7000 from './assets/combophotos/combo sale 7000 (1).webp'
+import cover10000 from './assets/combophotos/combo sale 10000.webp'
 
 const combos = [
   {
     comboId: "c1",
     name: "Rs 3000",
-    coverImage: cover5000,
+    coverImage: cover3000,
     products: [
       { id: "p1", qty: 5 }, { id: "p2", qty: 3 }, { id: "p3", qty: 1 }, { id: "p4", qty: 1 },
       { id: "p7", qty: 1 }, { id: "p8", qty: 1 }, { id: "p9", qty: 1 }, { id: "p10", qty: 1 },
@@ -25,7 +28,7 @@ const combos = [
   {
   comboId: "c2",
   name: "Rs 3000 Kids Special",
-  coverImage: cover5000,
+  coverImage: cover3000,
   products: [
     { id: "p1", qty: 1 }, { id: "p2", qty: 1 }, { id: "p8", qty: 1 }, { id: "p9", qty: 1 },
     { id: "p10", qty: 1 }, { id: "p11", qty: 1 }, 
@@ -78,7 +81,7 @@ const combos = [
   {
     comboId: "c4",
     name: "Rs 7000",
-    coverImage: cover5000,
+    coverImage: cover7000,
     products: [
       { id: "p1", qty: 5 }, { id: "p2", qty: 5 }, { id: "p3", qty: 5 }, { id: "p4", qty: 1 },
       { id: "p5", qty: 1 }, { id: "p6", qty: 2 }, { id: "p7", qty: 1 }, { id: "p8", qty: 2 },
@@ -101,7 +104,7 @@ const combos = [
   {
     comboId: "c5",
     name: "Rs 10000",
-    coverImage: cover5000,
+    coverImage: cover10000,
     products: [
       { id: "p1", qty: 5}, { id: "p2", qty: 5 }, { id: "p3", qty: 5 }, { id: "p4", qty: 5},
       { id: "p5", qty: 5 }, { id: "p6", qty: 5 }, { id: "p7", qty: 5 }, { id: "p8", qty: 1 },
