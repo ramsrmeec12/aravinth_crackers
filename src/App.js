@@ -17,6 +17,7 @@ import CombosPage from "./pages/CombosPage";
 import ComboDetailsPage from "./pages/ComboDetailsPage";
 import ScrollToTop from "./components/Scrolltotop";
 import { HelmetProvider } from "react-helmet-async";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   <HelmetProvider><Router>
     <ScrollToTop></ScrollToTop>
     <Navbar></Navbar>
+    <WhatsAppButton></WhatsAppButton>
     <Routes>
       <Route path="/" element={<DeepavaliDelights />} />
       <Route path="/products" element={<ProductsPage />} />
