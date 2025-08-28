@@ -1,5 +1,4 @@
-import image1 from './assets/image.png';
-import image2 from './assets/image.png';
+
 
 import kuruvi1 from './assets/products/kuruvi.jpeg'
 import kuruvi2 from './assets/products/kuruvi2.jpeg'
@@ -132,7 +131,11 @@ import p126 from './assets/products/p126.png'
 import p128 from './assets/products/p128.jpg'
 import p130 from './assets/products/p130.png'
 import p133 from './assets/products/p133.png'
-
+import p82 from './assets/products/p82.jpg'
+import p131 from './assets/products/p131.jpg'
+import p127 from './assets/products/p127.jpeg'
+import p129 from './assets/products/p129.jpeg'
+import p132 from './assets/products/p132.jpeg'
 
 
 const products = [
@@ -191,8 +194,8 @@ const products = [
     id: "p6",
     name: "6' Dragon",
     category: "Single Sound",
-    image: image1,
-    otherImages: [image2],
+    image: p5,
+    otherImages: [],
     originalPrice: 660,
     discountedPrice: 66,
     discountPercent: 90
@@ -887,8 +890,8 @@ const products = [
   id: "p73",
   name: "Big Beat/Strawberry (5 Pcs)",
   category: "Colour Fountain",
-  image: image1,
-  otherImages: [image2],
+  image: p72,
+  otherImages: [],
   originalPrice: 1540,
   discountedPrice: 154,
   discountPercent: 90
@@ -981,8 +984,8 @@ const products = [
   id: "p82",
   name: "Jasmine (5 Pcs)",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p82,
+  otherImages: [],
   originalPrice: 3300,
   discountedPrice: 330,
   discountPercent: 90
@@ -1121,8 +1124,8 @@ const products = [
   id: "p95",
   name: "Teddy 9000",
   category: "New Variety",
-  image: image1,
-  otherImages: [image2],
+  image: p94,
+  otherImages: [],
   originalPrice: 1540,
   discountedPrice: 154,
   discountPercent: 90
@@ -1164,7 +1167,7 @@ const products = [
   name: "Annam (10 in One)",
   category: "Match Box",
   image: p99,
-  otherImages: [image2],
+  otherImages: [],
   originalPrice: 935,
   discountedPrice: 94,
   discountPercent: 90
@@ -1450,8 +1453,8 @@ const products = [
   id: "p127",
   name: "Hitter",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p127,
+  otherImages: [],
   originalPrice: 2200,
   discountedPrice: 220,
   discountPercent: 90
@@ -1470,8 +1473,8 @@ const products = [
   id: "p129",
   name: "Rope Chakkaram",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p129,
+  otherImages: [],
   originalPrice: 2530,
   discountedPrice: 253,
   discountPercent: 90
@@ -1490,8 +1493,8 @@ const products = [
   id: "p131",
   name: "Moving Car",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p131,
+  otherImages: [],
   originalPrice: 1760,
   discountedPrice: 176,
   discountPercent: 90
@@ -1500,8 +1503,8 @@ const products = [
   id: "p132",
   name: "Hanuman Kadha",
   category: "2025 Diwali New Varieties",
-  image: image1,
-  otherImages: [image2],
+  image: p132,
+  otherImages: [],
   originalPrice: 1980,
   discountedPrice: 198,
   discountPercent: 90

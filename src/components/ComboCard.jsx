@@ -34,11 +34,14 @@ export default function ComboCard({ combo }) {
             className="border rounded-lg shadow-md p-4 hover:shadow-lg transition duration-200 cursor-pointer"
             onClick={() => navigate(`/combo/${combo.comboId}`)}
         >
-            <img
-                src={combo.coverImage}
-                alt={combo.name}
-                className="w-full h-48 object-cover rounded mb-3"
-            />
+            <div className="w-full mb-3">
+                <img
+                    src={combo.coverImage}
+                    alt={combo.name}
+                    className="w-full h-auto object-contain rounded bg-gray-100"
+                />
+            </div>
+
 
             <h2 className="text-lg font-bold mb-2">{combo.name}</h2>
 
@@ -58,8 +61,8 @@ export default function ComboCard({ combo }) {
             <button
                 onClick={handleAddCombo}
                 className={`mt-2 px-3 py-1 rounded text-sm font-semibold w-full ${isInCart
-                        ? "bg-green-500 hover:bg-green-600 text-white"
-                        : "bg-yellow-400 hover:bg-yellow-500"
+                    ? "bg-green-500 hover:bg-green-600 text-white"
+                    : "bg-yellow-400 hover:bg-yellow-500"
                     }`}
             >
                 {isInCart ? "Added to Cart" : "Add Combo to Cart"}
