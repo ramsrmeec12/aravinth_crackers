@@ -17,10 +17,10 @@ const LoginPage = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      if (user.uid === "kS2fDYnVD9cucGnVIUoEZsBrpCy2") {
-        navigate("/admin"); // Redirect admin
+      if (user.uid === "kS2fDYnVD9cucGnVIUoEZsBrpCy2" || "STMd3w9J13Nf2w9Y8dVsPaHVr3g1") {
+        navigate("/admin"); 
       } else {
-        navigate("/products"); // Redirect normal user
+        navigate("/products"); 
       }
     } catch (err) {
       setError(err.message);
