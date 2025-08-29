@@ -132,7 +132,7 @@ const CartPage = () => {
                     <p className="text-sm text-gray-500">{item.category}</p>
                   )}
                   <p className="text-gray-800 font-semibold">
-                    ₹{item.originalPrice} x {item.qty} = ₹
+                    ₹{item.discountedPrice} x {item.qty} = ₹
                     {(item.discountedPrice || 0) * item.qty}
                   </p>
                 </div>
