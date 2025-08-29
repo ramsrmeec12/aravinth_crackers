@@ -26,7 +26,7 @@ const CartPage = () => {
   const [loading, setLoading] = useState(false);
 
   const totalPrice = cart.reduce(
-    (sum, item) => sum + (item.originalPrice || 0) * item.qty,
+    (sum, item) => sum + (item.discountedPrice || 0) * item.qty,
     0
   );
 
@@ -133,7 +133,7 @@ const CartPage = () => {
                   )}
                   <p className="text-gray-800 font-semibold">
                     ₹{item.originalPrice} x {item.qty} = ₹
-                    {(item.originalPrice || 0) * item.qty}
+                    {(item.discountedPrice || 0) * item.qty}
                   </p>
                 </div>
               </div>
